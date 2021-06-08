@@ -1,9 +1,11 @@
-export const lang = new Map([
-	['en', 'en-US'],
-	['cn', 'zh-CN']
+import type { TLang } from '@/@types/app'
+
+export const e_lang = new Map<string, TLang>([
+	['en-US', 'en'],
+	['zh-CN', 'cn']
 ])
 
-export const lang_moment = new Map([
+export const e_lang_moment = new Map([
 	['en', 'en'],
 	['cn', 'zh-cn']
 ])

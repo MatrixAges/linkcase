@@ -1,17 +1,116 @@
 ._local {
 	display: flex;
 	box-sizing: border-box;
-	padding: 24px;
-	width: 330px;
-	height: 480px;
+	padding: @padding;
+	padding-bottom: 2 * @padding + 40px;
+	width: @width;
+
+	@width: 381px;
+	@padding: 24px;
 
 	:global {
 		.title_wrap {
 			.title {
 				font-weight: bold;
-				font-size: 18px;
+				font-size: 21px;
 				line-height: 1;
 			}
+		}
+
+		.input_items {
+			line-height: 1;
+
+			.input_item {
+				margin-top: 18px;
+
+				&.link_name {
+					.name {
+						margin-top: 12px;
+						height: auto;
+					}
+				}
+
+				.search_wrap {
+					margin-bottom: 12px;
+
+					.btn_cancel {
+						margin-left: 9px;
+					}
+				}
+
+				.name {
+					display: flex;
+					align-items: flex-end;
+					margin-bottom: 12px;
+					height: 32px;
+					color: #aaa;
+					line-height: 1;
+
+					.btn_search_wrap {
+						margin-bottom: -6px;
+						padding: 6px;
+						border-radius: 50%;
+						cursor: pointer;
+						transition: all ease 0.3s;
+
+						&:hover {
+							background-color: whitesmoke;
+						}
+
+						&:active {
+							transform: scale(0.72);
+						}
+
+						.btn_search {
+							line-height: 1;
+						}
+					}
+				}
+
+				.value_item {
+					box-shadow: 0 0 30px #eee inset;
+				}
+
+				.folder_items {
+					overflow-y: scroll;
+					padding: 12px;
+					height: 291px;
+					border: 1px solid whitesmoke;
+					border-radius: var(--radius_normal);
+					background-color: white;
+
+					.folder_item {
+						box-sizing: border-box;
+						padding: 18px 3px;
+						width: (@width - 2 * @padding - 2 * 12 - 2px) / 3;
+						border: 1px solid transparent;
+						border-radius: 6px;
+						cursor: pointer;
+						transition: all ease 0.3s;
+
+						&:hover {
+							background-color: whitesmoke;
+						}
+
+						&:active {
+							transform: scale(0.72);
+						}
+
+						.folder_name {
+							margin-top: 12px;
+							width: 100%;
+							text-align: center;
+							word-break: break-all;
+							font-size: 12px;
+							line-height: 1.5;
+						}
+					}
+				}
+			}
+		}
+
+		.btn_wrap {
+			padding: @padding;
 		}
 	}
 }

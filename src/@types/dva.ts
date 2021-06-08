@@ -21,10 +21,6 @@ type EffectWithType = [Effect, { type: EffectType }]
 type Subscription = (api: SubscriptionAPI, done: Function) => void
 type ReducersMapObjectWithEnhancer = [ReducersMapObject, ReducerEnhancer]
 
-interface EffectsMapObject {
-	[key: string]: Effect | EffectWithType
-}
-
 interface SubscriptionAPI {
 	history: History
 	dispatch: Dispatch<any>
@@ -34,10 +30,18 @@ interface SubscriptionsMapObject {
 	[key: string]: Subscription
 }
 
+interface EffectsMapObject {
+	[key: string]: Effect | EffectWithType
+}
+
+interface ReduxV3ReducersMapObject {
+	[key: string]: Reducer<any>
+}
+
 export interface Model {
 	namespace: string
 	state?: any
-	reducers?: ReducersMapObject | ReducersMapObjectWithEnhancer
+	reducers?: ReduxV3ReducersMapObject | ReducersMapObjectWithEnhancer
 	effects?: EffectsMapObject
 	subscriptions?: SubscriptionsMapObject
 }

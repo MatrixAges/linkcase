@@ -2,10 +2,13 @@ import { setLocale } from 'umi'
 import moment from 'moment'
 import en from 'antd/lib/locale/en_US'
 import cn from 'antd/lib/locale/zh_CN'
+import Sync from '@/store/sync'
 import type { TLang } from '@/@types/app'
 
-export const onChangeLanguage = (key: TLang) => {
-	switch (key) {
+export const onChangeLanguage = (lang: TLang) => {
+	Sync.set({ lang })
+
+	switch (lang) {
 		case 'cn':
 			moment.locale('zh-cn')
 			setLocale('zh-CN', false)
