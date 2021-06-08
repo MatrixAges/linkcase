@@ -16,7 +16,8 @@ export default {
 	extends: {
 		chrome_url_overrides: {
 			newtab: 'options.html'
-		}
+		},
+		homepage_url: 'https://github.com/MatrixAges/linkcase'
 	},
 	icons: {
 		16: 'logo/linkcase@16.png',
