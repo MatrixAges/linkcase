@@ -1,7 +1,5 @@
 import { getBucket } from '@extend-chrome/storage'
 
-interface IStore {
-	test: string
-}
+interface IStore {}
 
-export default getBucket<IStore>('local')
+export default getBucket<IStore>('local', 'local')

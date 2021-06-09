@@ -1,7 +1,7 @@
 import { memo, useState } from 'react'
 import { connect, useIntl } from 'umi'
 import { ConfigProvider, Button, Input } from 'antd'
-import { SearchOutlined, FolderOutlined } from '@ant-design/icons'
+import { SearchOutlined } from '@ant-design/icons'
 import useLang from '@/hooks/use_lang'
 import useBookmarks from '@/hooks/use_bookmarks'
 import styles from './index.less'

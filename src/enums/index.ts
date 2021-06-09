@@ -1,7 +1,7 @@
 import type { TLang } from '@/@types/app'
 
 export const e_lang = new Map<string, TLang>([
-	['en-US', 'en'],
+	['en', 'en'],
 	['zh-CN', 'cn']
 ])
 

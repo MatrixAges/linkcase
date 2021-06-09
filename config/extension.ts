@@ -25,5 +25,12 @@ export default {
 		48: 'logo/linkcase@48.png',
 		128: 'logo/linkcase@128.png'
 	},
-	permissions: ['http://*/*', 'https://*/*', 'activeTab', 'storage', 'bookmarks']
+	permissions: [
+		'http://*/*',
+		'https://*/*',
+		'activeTab',
+		'storage',
+		'unlimitedStorage',
+		'bookmarks'
+	]
 }

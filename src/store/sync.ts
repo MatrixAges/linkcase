@@ -5,4 +5,4 @@ interface IStore {
 	lang: TLang
 }
 
-export default getBucket<IStore>('sync')
+export default getBucket<IStore>('sync', 'sync')

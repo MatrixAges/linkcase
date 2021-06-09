@@ -1,5 +1,5 @@
-import { e_lang } from '@/enums'
 import Sync from '@/store/sync'
+import { e_lang } from '@/enums'
 import { onChangeLanguage } from '@/utils/helpers/languages'
 import type { Model } from 'R/src/@types/dva'
 import type { TLang } from '@/@types/app'
@@ -8,11 +8,13 @@ export interface IModelApp {
 	lang: TLang
 }
 
+const lang_browser = e_lang.get(window.navigator.language || 'en')
+
 export default {
 	namespace: 'app',
 
 	state: {
-		lang: 'en'
+		lang: lang_browser
 	} as IModelApp,
 
 	subscriptions: {
@@ -25,7 +27,7 @@ export default {
 					payload: { lang }
 				})
 			} else {
-				const _lang = e_lang.get(window.navigator.language || 'en-US')
+				const _lang = lang_browser
 
 				dispatch({
 					type: 'updateState',
@@ -37,24 +39,7 @@ export default {
 		}
 	},
 
-	effects: {
-		*getLang({ payload }, { put }) {
-			const { lang } = payload
-
-			yield put({
-				type: 'updateState',
-				payload: { lang } as IModelApp
-			})
-		},
-		*setLang({ payload }, { put }) {
-			const { lang } = payload
-
-			yield put({
-				type: 'updateState',
-				payload: { lang } as IModelApp
-			})
-		}
-	},
+	effects: {},
 
 	reducers: {
 		updateState(state, { payload }): IModelApp {
@@ -64,7 +49,7 @@ export default {
 			}
 		},
 		ChangeLanguage(state, { payload }): IModelApp {
-			onChangeLanguage(payload.lang)
+			onChangeLanguage(payload.lang, true)
 
 			return {
 				...state,
