@@ -1,1 +1,3 @@
-console.log('This is background page!')
+import { _onTheme } from '@/utils/helpers/theme'
+
+_onTheme()

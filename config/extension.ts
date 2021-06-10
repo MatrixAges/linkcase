@@ -20,10 +20,10 @@ export default {
 		homepage_url: 'https://github.com/MatrixAges/linkcase'
 	},
 	icons: {
-		16: 'logo/linkcase@16.png',
-		32: 'logo/linkcase@32.png',
-		48: 'logo/linkcase@48.png',
-		128: 'logo/linkcase@128.png'
+		16: 'logo/linkcase@16_dark.png',
+		32: 'logo/linkcase@32_dark.png',
+		48: 'logo/linkcase@48_dark.png',
+		128: 'logo/linkcase@128_dark.png'
 	},
 	permissions: [
 		'http://*/*',

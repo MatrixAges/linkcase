@@ -1,3 +1,4 @@
+import { _setTheme } from '@/utils/helpers/theme'
 import './index.less'
 
-console.log(`scripts loaded`)
+_setTheme()

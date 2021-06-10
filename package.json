@@ -50,7 +50,6 @@
     "react-dom": "17.0.2",
     "react-if": "^4.0.1",
     "recharts": "^2.0.9",
-    "smoothscroll-for-websites": "^1.4.10",
     "umi": "^3.4.23"
   },
   "devDependencies": {

@@ -109,11 +109,9 @@ const Index: ConnectRC<IProps> = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className='btn_wrap w_100 border_box absolute bottom_0 left_0'>
-					<Button className='btn_confirm w_100' type='primary' size='large'>
-						{intl.formatMessage({ id: 'popup.confirm_text' })}
-					</Button>
-				</div>
+				<Button className='btn_confirm w_100' type='primary' size='large'>
+					{intl.formatMessage({ id: 'popup.confirm_text' })}
+				</Button>
 			</div>
 		</ConfigProvider>
 	)

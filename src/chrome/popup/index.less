@@ -2,7 +2,6 @@
 	display: flex;
 	box-sizing: border-box;
 	padding: @padding;
-	padding-bottom: 2 * @padding + 40px;
 	width: @width;
 
 	@width: 360px;
@@ -67,17 +66,18 @@
 					}
 				}
 
-				.value_item {
-					box-shadow: 0 0 30px #eee inset;
-				}
-
 				.folder_items {
 					overflow-y: scroll;
 					padding: 12px;
-					height: 291px;
+					height: 300px;
 					border: 1px solid whitesmoke;
 					border-radius: var(--radius_normal);
 					background-color: white;
+					transition: all ease 0.3s;
+
+					&:hover {
+						box-shadow: 0 0 30px #eee inset;
+					}
 
 					.folder_item {
 						box-sizing: border-box;
@@ -109,8 +109,8 @@
 			}
 		}
 
-		.btn_wrap {
-			padding: @padding;
+		.btn_confirm {
+			margin-top: @padding;
 		}
 	}
 }

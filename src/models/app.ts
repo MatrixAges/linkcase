@@ -1,5 +1,5 @@
 import Sync from '@/store/sync'
-import { e_lang } from '@/enums'
+import { e_lang, e_lang_umi } from '@/enums'
 import { onChangeLanguage } from '@/utils/helpers/languages'
 import type { Model } from 'R/src/@types/dva'
 import type { TLang } from '@/@types/app'
@@ -8,7 +8,9 @@ export interface IModelApp {
 	lang: TLang
 }
 
-const lang_browser = e_lang.get(window.navigator.language || 'en')
+const lang_browser =
+	e_lang_umi.get(localStorage.getItem('umi_locale') || 'en-US') ||
+	e_lang.get(window.navigator.language || 'en')
 
 export default {
 	namespace: 'app',
@@ -27,14 +29,12 @@ export default {
 					payload: { lang }
 				})
 			} else {
-				const _lang = lang_browser
-
 				dispatch({
 					type: 'updateState',
-					payload: { lang: _lang }
+					payload: { lang: lang_browser }
 				})
 
-				await Sync.set({ lang: _lang })
+				await Sync.set({ lang: lang_browser })
 			}
 		}
 	},
