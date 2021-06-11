@@ -10,6 +10,10 @@ export default {
 			entries: ['@/chrome/scripts']
 		}
 	],
+	optionsUI: {
+		page: '@/pages/index',
+		openInTab: true
+	},
 	background: {
 		scripts: ['@/chrome/background'],
 		persistent: true
