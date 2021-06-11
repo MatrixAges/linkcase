@@ -1,103 +1,18 @@
+@import './var.less';
+
 ._local {
 	position: relative;
 	width: 100vw;
 	height: 100vh;
 
 	:global {
-		.cover_bg {
-			z-index: 1;
-		}
-
-		.cover_filter {
-			z-index: 2;
-		}
-
 		.content_wrap {
 			z-index: 3;
 			padding: @padding;
 			padding-bottom: @padding / 2;
 
-			@padding: 3vw;
-			@height_search: 120px;
-			@height_bar: 80px;
-			@height_indicate: 60px;
-
-			.search_wrap {
-				height: @height_search;
-
-				.search {
-					width: 36vw;
-					height: 3vw;
-					border-radius: 3vw;
-					background-color: white;
-
-					.input_search {
-						border: none;
-
-						&:focus,
-						&:hover {
-							outline: none;
-							border: none;
-							box-shadow: none;
-						}
-					}
-				}
-			}
-
 			.link_items_wrap {
-				height: calc(
-					100vh - 1.5 * @padding - @height_search - @height_indicate -
-						@height_bar
-				);
-			}
-
-			.indicate_items_wrap {
-				height: @height_indicate;
-
-				.indicate_items {
-					.indicate_item {
-						margin: 0 6px;
-						width: 6px;
-						height: 6px;
-						border-radius: 50%;
-						background: rgba(255, 255, 255, 0.3);
-
-						&.active {
-							background-color: rgba(255, 255, 255, 0.6);
-						}
-					}
-				}
-			}
-
-			.bar_items_wrap {
-				height: @height_bar;
-
-				@padding_bar_item: 6px;
-
-				.bar_items {
-					padding: 0 @padding_bar_item;
-					border-radius: var(--radius_section);
-					background-color: rgba(255, 255, 255, 0.1);
-
-					backdrop-filter: blur(9px);
-
-					.bar_item {
-						margin: 0 @padding_bar_item;
-						width: calc(@height_bar - 4 * @padding_bar_item);
-						height: calc(@height_bar - 4 * @padding_bar_item);
-						border-radius: var(--radius_link);
-						background-position: center;
-						background-size: cover;
-						background-repeat: no-repeat;
-
-						will-change: transform, margin;
-
-						&:hover {
-							margin: 0 12px;
-							transform: scale(1.2);
-						}
-					}
-				}
+				height: calc(100vh - 1.5 * @padding - @height_indicate - @height_bar);
 			}
 		}
 	}

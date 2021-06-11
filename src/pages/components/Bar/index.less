@@ -1,0 +1,51 @@
+@import '../../var.less';
+
+@keyframes touch_link {
+	0% {
+		transform: translateY(0px);
+	}
+
+	72% {
+		transform: translateY(-24px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+._local {
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 100%;
+	height: @height_bar;
+
+	@padding_bar_item: 6px;
+
+	:global {
+		.bar_items {
+			padding: 0 @padding_bar_item;
+			border-radius: var(--radius_section);
+			background-color: rgba(255, 255, 255, 0.072);
+
+			backdrop-filter: blur(9px);
+
+			.bar_item {
+				margin: 0 @padding_bar_item;
+				width: calc(@height_bar - 4 * @padding_bar_item);
+				height: calc(@height_bar - 4 * @padding_bar_item);
+				border-radius: var(--radius_link);
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+
+				&.touched {
+					:local {
+						animation: touch_link 600ms ease-out;
+					}
+				}
+			}
+		}
+	}
+}
