@@ -4,13 +4,14 @@ export default {
 	description: 'A better way to reuse your bookcase and favorites.',
 	minimumChromeVersion: '72',
 	popupUI: '@/chrome/popup',
-	contentScripts: [{ matches: ['<all_urls>'], entries: ['@/chrome/scripts'] }],
-	optionsUI: {
-		page: '@/pages',
-		openInTab: true
-	},
+	contentScripts: [
+		{
+			matches: ['<all_urls>'],
+			entries: ['@/chrome/scripts']
+		}
+	],
 	background: {
-		scripts: ['@/chrome/background/index'],
+		scripts: ['@/chrome/background'],
 		persistent: true
 	},
 	extends: {

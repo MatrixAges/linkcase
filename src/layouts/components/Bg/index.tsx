@@ -11,7 +11,10 @@ const Index = () => {
 
 	return (
 		<div
-			className={`${styles._local} absolute top_0 left_0 w_100 h_100`}
+			className={`
+                        ${styles._local}
+                        absolute top_0 left_0 w_100 h_100 transition_normal
+                  `}
 			style={style}
 		></div>
 	)
