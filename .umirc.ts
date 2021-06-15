@@ -5,6 +5,8 @@ import Theme from './src/theme'
 
 export default defineConfig({
 	title: 'Linkcase',
+	theme: Theme,
+	extensions: Extension,
 	antd: {},
 	esbuild: {},
 	cssnano: {},
@@ -16,8 +18,6 @@ export default defineConfig({
 	nodeModulesTransform: { type: 'none' },
 	alias: { R: resolve(__dirname, './') },
 	locale: { antd: true, default: 'en-US' },
-	theme: Theme,
-	extensions: Extension,
 	links: [{ rel: 'preconnect', href: 'https://fonts.lug.ustc.edu.cn' }],
 	styles: [
 		`@import url('https://fonts.lug.ustc.edu.cn/css2?family=Open+Sans&display=swap')`,
