@@ -8,12 +8,9 @@
 	:global {
 		.content_wrap {
 			z-index: 3;
-			padding: @padding;
-			padding-bottom: @padding / 2;
-
-			.link_items_wrap {
-				height: calc(100vh - 1.5 * @padding - @height_indicate - @height_bar);
-			}
+			padding: 0 @padding;
+			padding-top: 1.5 * @padding;
+			padding-bottom: @padding_bottom;
 		}
 	}
 }

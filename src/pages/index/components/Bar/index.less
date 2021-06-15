@@ -26,8 +26,8 @@
 	:global {
 		.bar_items {
 			padding: 0 @padding_bar_item;
-			border-radius: var(--radius_section);
-			background-color: rgba(255, 255, 255, 0.072);
+			border-radius: var(--radius_bar);
+			background-color: rgba(255, 255, 255, 0.3);
 
 			backdrop-filter: blur(9px);
 
@@ -35,7 +35,7 @@
 				margin: 0 @padding_bar_item;
 				width: calc(@height_bar - 4 * @padding_bar_item);
 				height: calc(@height_bar - 4 * @padding_bar_item);
-				border-radius: var(--radius_link);
+				border-radius: var(--radius_bar_item);
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;

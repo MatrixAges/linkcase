@@ -21,19 +21,19 @@ export default {
 
 	subscriptions: {
 		async setup({ dispatch }) {
-			const { lang } = await Sync.get('lang')
-			if (lang) {
-				dispatch({
-					type: 'updateState',
-					payload: { lang }
-				})
-			} else {
-				dispatch({
-					type: 'updateState',
-					payload: { lang: lang_browser }
-				})
-				await Sync.set({ lang: lang_browser })
-			}
+			// const { lang } = await Sync.get('lang')
+			// if (lang) {
+			// 	dispatch({
+			// 		type: 'updateState',
+			// 		payload: { lang }
+			// 	})
+			// } else {
+			// 	dispatch({
+			// 		type: 'updateState',
+			// 		payload: { lang: lang_browser }
+			//       })
+			// 	await Sync.set({ lang: lang_browser })
+			// }
 		}
 	},
 

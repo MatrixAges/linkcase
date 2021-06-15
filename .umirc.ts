@@ -13,6 +13,7 @@ export default defineConfig({
 	webpack5: {},
 	fastRefresh: {},
 	targets: { chrome: 72 },
+	favicon: '/logo/favicon.ico',
 	cssModulesTypescriptLoader: {},
 	dva: { immer: true, hmr: true },
 	nodeModulesTransform: { type: 'none' },

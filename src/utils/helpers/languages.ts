@@ -6,7 +6,9 @@ import Sync from '@/store/sync'
 import type { TLang } from '@/@types/app'
 
 export const onChangeLanguage = (lang: TLang, by_action?: boolean) => {
-	if (by_action) Sync.set({ lang })
+	if (by_action) {
+		// Sync.set({ lang })
+	}
 
 	switch (lang) {
 		case 'cn':

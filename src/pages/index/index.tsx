@@ -1,7 +1,9 @@
 import { memo } from 'react'
-import { connect, Link } from 'umi'
+import { connect } from 'umi'
+import Links from './components/Links'
 import Indi from './components/Indi'
 import Bar from './components/Bar'
+import Modal from './components/Modal'
 import styles from './index.less'
 import type { IModelApp, ConnectRC } from 'umi'
 
@@ -15,13 +17,10 @@ const Index: ConnectRC<IProps> = (props) => {
 	return (
 		<div className={styles._local}>
 			<div className='content_wrap border_box absolute top_0 left_0 w_100 h_100 flex flex_column'>
-				<div className='link_items_wrap w_100 border_box'>
-					<div className='link_items h_100 flex flex_wrap'>
-						<Link to='/ex.html'>ex</Link>
-					</div>
-				</div>
+				<Links></Links>
 				<Indi></Indi>
 				<Bar></Bar>
+				<Modal></Modal>
 			</div>
 		</div>
 	)
