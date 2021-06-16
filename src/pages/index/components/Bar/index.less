@@ -6,7 +6,7 @@
 	}
 
 	72% {
-		transform: translateY(-24px);
+		transform: translateY(-12px);
 	}
 
 	100% {
@@ -16,10 +16,13 @@
 
 ._local {
 	display: flex;
+	overflow: visible;
+	overflow-x: hidden;
 	justify-content: center;
 	box-sizing: border-box;
-	width: 100%;
+	max-width: 100%;
 	height: @height_bar;
+	border-radius: var(--radius_bar);
 
 	@padding_bar_item: 6px;
 
@@ -34,11 +37,12 @@
 			.bar_item {
 				margin: 0 @padding_bar_item;
 				width: calc(@height_bar - 4 * @padding_bar_item);
-				height: calc(@height_bar - 4 * @padding_bar_item);
 				border-radius: var(--radius_bar_item);
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;
+
+				aspect-ratio: 1;
 
 				&.touched {
 					:local {

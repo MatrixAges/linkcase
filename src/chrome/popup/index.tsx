@@ -1,6 +1,6 @@
 import { memo, useState } from 'react'
 import { connect, useIntl } from 'umi'
-import { Button, Input } from 'antd'
+import { Button, Input, Switch } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import useBookmarks from '@/hooks/use_bookmarks'
 import styles from './index.less'
@@ -24,8 +24,11 @@ const Index: ConnectRC<IProps> = (props) => {
                               flex flex_column relative
                         `}
 		>
-			<div className='title_wrap'>
+			<div className='title_wrap flex justify_between align_center'>
 				<span className='title'>{intl.formatMessage({ id: 'popup.title' })}</span>
+				<div className='right flex align_center'>
+					<Switch checkedChildren='site' unCheckedChildren='link'></Switch>
+				</div>
 			</div>
 			<div className='input_items flex flex_column'>
 				<div className='link_name input_item flex flex_column'>
@@ -99,7 +102,7 @@ const Index: ConnectRC<IProps> = (props) => {
 					</div>
 				</div>
 			</div>
-			<Button className='btn_confirm w_100' type='primary' size='large'>
+			<Button className='btn_confirm w_100' size='large'>
 				{intl.formatMessage({ id: 'popup.confirm_text' })}
 			</Button>
 		</div>

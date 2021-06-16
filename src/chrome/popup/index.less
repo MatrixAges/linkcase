@@ -6,7 +6,6 @@
 	padding: @padding;
 	padding-bottom: @padding - 6px;
 	width: @width;
-	background-color: white;
 
 	@width: 360px;
 	@padding: 24px;
@@ -14,6 +13,7 @@
 	:global {
 		.title_wrap {
 			.title {
+				color: white;
 				font-weight: bold;
 				font-size: 21px;
 				line-height: 1;
@@ -46,7 +46,7 @@
 					align-items: flex-end;
 					margin-bottom: 12px;
 					height: 32px;
-					color: #aaa;
+					color: rgba(255, 255, 255, 0.5);
 					line-height: 1;
 
 					.btn_search_wrap {
@@ -58,6 +58,7 @@
 
 						&:hover {
 							background-color: whitesmoke;
+							color: black;
 						}
 
 						&:active {

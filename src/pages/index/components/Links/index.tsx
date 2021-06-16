@@ -1,9 +1,23 @@
 import { memo } from 'react'
 import { Switch, Case, Default } from 'react-if'
+import { useCreation, useSize, useReactive } from 'ahooks'
+import { useReactiveSize, useGetBlockWidth } from './hooks'
 import { link_items } from '@/data'
 import styles from './index.less'
 
+export interface IReactive {
+	size_item: number
+	interval: number
+}
+
 const Index = () => {
+	const reactive = useReactive({ size_item: 160, interval: 10 })
+	const body = useCreation(() => document.querySelector('body'), [])
+	const { width, height } = useSize(body)
+	const getBlockWidth = useGetBlockWidth(reactive)
+
+	useReactiveSize(width, height, reactive)
+
 	return (
 		<div className={styles._local}>
 			<div className='link_items h_100 flex flex_wrap'>
@@ -11,7 +25,7 @@ const Index = () => {
 					<Switch key={index}>
 						<Case condition={item.type === 'photo'}>
 							<div
-								className='link_item_wrap photo flex flex_column align_center'
+								className='link_item_wrap block photo flex flex_column align_center'
 								style={{
 									gridRow: `span ${item.row}`,
 									gridColumn: `span ${item.column}`
@@ -20,7 +34,8 @@ const Index = () => {
 								<div
 									className='link_item cursor_point relative'
 									style={{
-										backgroundImage: `url(${item.image})`
+										backgroundImage: `url(${item.image})`,
+										width: getBlockWidth(item.column)
 									}}
 								>
 									<div className='info_wrap absolute flex flex_column'>
@@ -32,18 +47,23 @@ const Index = () => {
 										</span>
 									</div>
 								</div>
-								<span className='text'>{item.name}</span>
+								<span className='name line_clamp_1'>
+									{item.name}
+								</span>
 							</div>
 						</Case>
 						<Case condition={item.type === 'note'}>
 							<div
-								className='link_item_wrap note photo flex flex_column align_center'
+								className='link_item_wrap block note flex flex_column align_center'
 								style={{
 									gridRow: `span ${item.row}`,
 									gridColumn: `span ${item.column}`
 								}}
 							>
-								<div className='link_item cursor_point relative bg_white'>
+								<div
+									className='link_item cursor_point relative bg_white'
+									style={{ width: getBlockWidth(item.column) }}
+								>
 									<div className='note_items w_100 h_100 border_box flex flex_column'>
 										{item.data &&
 											item.data.map((it, idx) => (
@@ -65,7 +85,9 @@ const Index = () => {
 											))}
 									</div>
 								</div>
-								<span className='text'>{item.name}</span>
+								<span className='name line_clamp_1'>
+									{item.name}
+								</span>
 							</div>
 						</Case>
 						<Default>
@@ -77,7 +99,9 @@ const Index = () => {
 										backgroundImage: `url(${item.image})`
 									}}
 								></a>
-								<span className='text'>{item.name}</span>
+								<span className='name line_clamp_1'>
+									{item.name}
+								</span>
 							</div>
 						</Default>
 					</Switch>
