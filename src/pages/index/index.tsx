@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { connect, useIntl, Helmet } from 'umi'
-import Links from './components/Links'
+import Sites from './components/Site'
 import Indi from './components/Indi'
 import Bar from './components/Bar'
 import Modal from './components/Modal'
@@ -21,7 +21,7 @@ const Index: ConnectRC<IProps> = (props) => {
 				<title>{intl.formatMessage({ id: 'title' })}</title>
 			</Helmet>
 			<div className='content_wrap border_box absolute top_0 left_0 w_100 h_100 flex flex_column'>
-				<Links></Links>
+				<Sites></Sites>
 				<Indi></Indi>
 				<Bar></Bar>
 				<Modal></Modal>
