@@ -28,7 +28,13 @@ const Index = () => {
 								className='link_item_wrap block photo flex flex_column align_center'
 								style={{
 									gridRow: `span ${item.row}`,
-									gridColumn: `span ${item.column}`
+									gridColumn: `span ${item.column}`,
+									gridRowStart: Number(item.y) + 1,
+									gridRowEnd:
+										Number(item.y) + Number(item.row) + 1,
+									gridColumnStart: Number(item.x) + 1,
+									gridColumnEnd:
+										Number(item.x) + Number(item.column) + 1
 								}}
 							>
 								<div

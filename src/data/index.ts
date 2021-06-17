@@ -189,7 +189,9 @@ export const link_items = [
 	{
 		type: 'photo',
 		row: 3,
-		column: 3,
+		column: 2,
+		x: 1,
+		y: 1,
 		name: '照片',
 		desc: '猫头鹰',
 		date: '2018年9月18日',
@@ -198,7 +200,7 @@ export const link_items = [
 	{
 		type: 'note',
 		row: 3,
-		column: 4,
+		column: 3,
 		name: '待办事项',
 		data: [
 			{

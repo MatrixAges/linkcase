@@ -4,7 +4,6 @@ import Extension from './config/extension'
 import Theme from './src/theme'
 
 export default defineConfig({
-	title: 'Linkcase',
 	theme: Theme,
 	extensions: Extension,
 	antd: {},

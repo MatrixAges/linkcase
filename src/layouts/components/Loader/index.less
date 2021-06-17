@@ -1,0 +1,22 @@
+._local {
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+	transition: opacity ease-in-out 0.3s;
+
+	&._opacity {
+		opacity: 0;
+	}
+
+	&._display {
+		display: none;
+	}
+
+	:global {
+		.logo {
+			max-width: 90px;
+		}
+	}
+}

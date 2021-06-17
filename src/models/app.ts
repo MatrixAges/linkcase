@@ -6,6 +6,7 @@ import type { TLang } from '@/@types/app'
 
 export interface IModelApp {
 	lang: TLang
+	dom_ready: boolean
 }
 
 const lang_browser =
@@ -16,7 +17,8 @@ export default {
 	namespace: 'app',
 
 	state: {
-		lang: lang_browser
+		lang: lang_browser,
+		dom_ready: false
 	} as IModelApp,
 
 	subscriptions: {

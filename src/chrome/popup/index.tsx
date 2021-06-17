@@ -102,7 +102,7 @@ const Index: ConnectRC<IProps> = (props) => {
 					</div>
 				</div>
 			</div>
-			<Button className='btn_confirm w_100' size='large'>
+			<Button className='btn_confirm w_100' type='primary' size='large'>
 				{intl.formatMessage({ id: 'popup.confirm_text' })}
 			</Button>
 		</div>

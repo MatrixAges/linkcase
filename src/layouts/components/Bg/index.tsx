@@ -1,11 +1,12 @@
 import { memo } from 'react'
 import styles from './index.less'
-import bg_placeholder from '@/assets/images/bg_placeholder.png'
 import bg from '@/assets/test_images/bg.jpg'
+import type { IPropsBg } from '../../index'
 
-const Index = () => {
+const Index = (props: IPropsBg) => {
+	const { domToReady } = props
+
 	const style: React.CSSProperties = {
-		backgroundImage: `url(${bg_placeholder})`,
 		backgroundSize: 'cover',
 		backgroundPosition: 'center center',
 		backgroundRepeat: 'no-repeat'
@@ -18,6 +19,8 @@ const Index = () => {
 		if (!Bg) return
 
 		Bg.style.backgroundImage = `url(${src})`
+
+		domToReady()
 	}
 
 	return (

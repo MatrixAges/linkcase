@@ -6,6 +6,7 @@
 	padding: @padding;
 	padding-bottom: @padding - 6px;
 	width: @width;
+	background-color: var(--color_bg);
 
 	@width: 360px;
 	@padding: 24px;
@@ -13,7 +14,6 @@
 	:global {
 		.title_wrap {
 			.title {
-				color: white;
 				font-weight: bold;
 				font-size: 21px;
 				line-height: 1;
@@ -46,7 +46,7 @@
 					align-items: flex-end;
 					margin-bottom: 12px;
 					height: 32px;
-					color: rgba(255, 255, 255, 0.5);
+					color: #aaa;
 					line-height: 1;
 
 					.btn_search_wrap {
@@ -57,7 +57,7 @@
 						transition: all ease 0.3s;
 
 						&:hover {
-							background-color: whitesmoke;
+							background-color: white;
 							color: black;
 						}
 
@@ -69,10 +69,6 @@
 							line-height: 1;
 						}
 					}
-				}
-
-				.value_item {
-					box-shadow: 0 0 30px #eee inset;
 				}
 
 				.folder_items {
