@@ -43,7 +43,7 @@ const Index = () => {
 				list={s_link_items}
 				setList={setLinkItems}
 				animation={300}
-				delay={2}
+				delay={100}
 			>
 				{s_link_items.map((item) => (
 					<Switch key={item.id}>
