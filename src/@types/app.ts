@@ -36,10 +36,3 @@ export interface ILinkItem {
 	x?: number
 	y?: number
 }
-
-export interface IDrag {
-	draggable: 'true'
-	key: string
-	onDragStart: (e: React.DragEvent<Element>) => void
-	onDragEnd: (e: React.DragEvent<Element>) => void
-}

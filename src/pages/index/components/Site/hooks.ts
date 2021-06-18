@@ -24,11 +24,12 @@ export const useReactiveSize = (
 				padding = 0.05 * height - 6
 			}
 
-			const size_item =
-				(height - 0.036 * width - 24 - 36 - 80) / 5 - padding * 2 - 25 - 0.015
+			const size_column = (width - 0.024 * 2 * width) / 9 - 0.015
+			const size_row = (height - 0.036 * width - 24 - 36 - 80) / 5 - 0.015
+			const size_item = size_row - padding * 2 - 25
 
 			reactive.size_item = size_item
-			reactive.interval = ((width - 0.024 * 2 * width) / 9 - 0.015 - size_item) / 2
+			reactive.interval = (size_column - size_item) / 2
 		},
 		[width, height],
 		{ leading: true, wait: 100 }

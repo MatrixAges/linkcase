@@ -9,10 +9,7 @@ const Index = (props: IProps) => {
 	const { item } = props
 
 	return (
-		<div
-			className='link_item_wrap flex flex_column align_center'
-			style={{ visibility: item.draging ? 'hidden' : 'visible' }}
-		>
+		<div className='link_item_wrap flex flex_column align_center'>
 			<a
 				className='link_item cursor_point relative'
 				target='_blank'
