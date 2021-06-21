@@ -5,15 +5,26 @@ import Indi from './components/Indi'
 import Bar from './components/Bar'
 import Modal from './components/Modal'
 import styles from './index.less'
-import type { IModelApp, ConnectRC } from 'umi'
+import type { IModelApp, ConnectRC, Dispatch } from 'umi'
 
 interface IProps {
 	page_data: IModelApp
 }
 
+export interface IPropsModal {
+	visible: IModelApp['visible_modal']
+	dispatch: Dispatch
+}
+
 const Index: ConnectRC<IProps> = (props) => {
-	const { page_data } = props
+	const { page_data, dispatch } = props
+	const { visible_modal } = page_data
 	const intl = useIntl()
+
+	const props_modal = {
+		visible: visible_modal,
+		dispatch
+	}
 
 	return (
 		<div className={styles._local}>
@@ -24,7 +35,7 @@ const Index: ConnectRC<IProps> = (props) => {
 				<Sites></Sites>
 				<Indi></Indi>
 				<Bar></Bar>
-				<Modal></Modal>
+				<Modal {...props_modal}></Modal>
 			</div>
 		</div>
 	)

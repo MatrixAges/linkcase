@@ -10,9 +10,23 @@
 			border-radius: 50%;
 			background-color: rgba(0, 0, 0, 0.1);
 
+			&:hover {
+				background-color: rgba(0, 0, 0, 0.3);
+			}
+
 			.logo {
 				max-width: 15px;
 			}
+		}
+
+		.ant-modal-content {
+			background-color: transparent;
+		}
+
+		.modal_wrap {
+			height: 600px;
+			border-radius: var(--radius_modal);
+			background: fade(@color_bg, 96%);
 		}
 	}
 }

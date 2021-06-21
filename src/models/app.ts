@@ -7,6 +7,7 @@ import type { TLang } from '@/typings/app'
 export interface IModelApp {
 	lang: TLang
 	dom_ready: boolean
+	visible_modal: boolean
 }
 
 const lang_browser =
@@ -18,7 +19,8 @@ export default {
 
 	state: {
 		lang: lang_browser,
-		dom_ready: false
+		dom_ready: false,
+		visible_modal: false
 	} as IModelApp,
 
 	subscriptions: {
