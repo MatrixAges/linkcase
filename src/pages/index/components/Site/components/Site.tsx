@@ -10,11 +10,10 @@ const Index = (props: IProps) => {
 
 	return (
 		<div className='link_item_wrap flex flex_column align_center'>
-			<a
-				className='link_item cursor_point relative'
-				target='_blank'
+			<div
+				className='link_item relative'
 				style={{ backgroundImage: `url(${item.image})` }}
-			></a>
+			></div>
 			<span className='name line_clamp_1'>{item.name}</span>
 		</div>
 	)

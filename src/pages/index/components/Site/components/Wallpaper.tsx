@@ -13,7 +13,7 @@ const Index = (props: IPropsItem) => {
 			}}
 		>
 			<div
-				className='link_item cursor_point relative'
+				className='link_item relative'
 				style={{
 					backgroundImage: `url(${item.data?.[0].src})`,
 					width: getBlockWidth(item.column)

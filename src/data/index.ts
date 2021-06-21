@@ -188,6 +188,14 @@ export const bar_items = [
 ]
 
 export const link_items: Array<ILinkItem> = [
+	// {
+	// 	id: -2,
+	// 	type: 'holder'
+	// },
+	// {
+	// 	id: -1,
+	// 	type: 'holder'
+	// },
 	{
 		id: 0,
 		name: '我的壁纸',

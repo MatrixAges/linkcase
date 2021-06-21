@@ -18,7 +18,7 @@ const Index = (props: IProps) => {
 			}}
 		>
 			<div
-				className='link_item cursor_point relative bg_white'
+				className='link_item relative bg_white'
 				style={{ width: getBlockWidth(item.column) }}
 			>
 				<div className='note_items w_100 h_100 border_box flex flex_column'>

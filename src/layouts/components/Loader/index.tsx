@@ -17,13 +17,18 @@ const Index = ({ visible }: IProps) => {
 			reactive._opacity = true
 			reactive._display = true
 		} else {
-			reactive._opacity = false
-
-			const timer = setTimeout(() => {
-				reactive._display = false
+			const timer_opacity = setTimeout(() => {
+				reactive._opacity = false
 			}, 300)
 
-			return () => clearTimeout(timer)
+			const timer_display = setTimeout(() => {
+				reactive._display = false
+			}, 450)
+
+			return () => {
+				clearTimeout(timer_opacity)
+				clearTimeout(timer_display)
+			}
 		}
 	}, [visible])
 
