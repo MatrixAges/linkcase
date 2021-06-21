@@ -1,4 +1,4 @@
-import type { TLang } from '@/@types/app'
+import type { TLang } from '@/typings/app'
 
 export const e_lang = new Map<string, TLang>([
 	['en', 'en'],

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { cloneDeep } from 'lodash-es'
-import type { ILinkItem } from '@/@types/app'
+import type { ILinkItem } from '@/typings/app'
 
 export const useDeactive = (
 	s_index: number | undefined,

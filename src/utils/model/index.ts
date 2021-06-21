@@ -1,4 +1,4 @@
-import type { Model } from 'R/src/@types/dva'
+import type { Model } from '@/typings/dva'
 
 export interface IModelCommon {}
 

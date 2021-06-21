@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { onChangeLanguage } from '@/utils/helpers/languages'
 import en from 'antd/lib/locale/en_US'
-import type { TLang } from '@/@types/app'
+import type { TLang } from '@/typings/app'
 
 const Index = (lang: TLang) => {
 	const [s_locale, setLocale] = useState(en)

@@ -1,5 +1,5 @@
 import { getBucket } from '@extend-chrome/storage'
-import type { TLang } from '@/@types/app'
+import type { TLang } from '@/typings/app'
 
 interface IStore {
 	lang: TLang

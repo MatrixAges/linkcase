@@ -9,7 +9,7 @@ import Note from './components/Note'
 import Site from './components/Site'
 import Holder from './components/Holder'
 import styles from './index.less'
-import type { ILinkItem } from '@/@types/app'
+import type { ILinkItem } from '@/typings/app'
 
 export interface IReactive {
 	size_item: number

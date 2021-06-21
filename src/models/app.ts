@@ -1,8 +1,8 @@
 import Sync from '@/store/sync'
 import { e_lang, e_lang_umi } from '@/enums'
 import { onChangeLanguage } from '@/utils/helpers/languages'
-import type { Model } from 'R/src/@types/dva'
-import type { TLang } from '@/@types/app'
+import type { Model } from '@/typings/dva'
+import type { TLang } from '@/typings/app'
 
 export interface IModelApp {
 	lang: TLang

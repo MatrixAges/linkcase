@@ -1,4 +1,4 @@
-import type { ILinkItem } from '@/@types/app'
+import type { ILinkItem } from '@/typings/app'
 
 export const bar_items = [
 	{
