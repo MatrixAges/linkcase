@@ -1,50 +1,112 @@
-@keyframes touch_link {
-	0% {
-		transform: translateY(0px);
-	}
-
-	72% {
-		transform: translateY(-12px);
-	}
-
-	100% {
-		transform: translateY(0);
-	}
-}
-
 ._local {
 	display: none;
-	overflow: visible;
-	overflow-x: hidden;
-	justify-content: center;
-	box-sizing: border-box;
-	max-width: 100%;
-	border-radius: var(--radius_bar);
-
-	@padding_bar_item: 6px;
-
 	:global {
-		.bar_items {
-			padding: 0 @padding_bar_item;
-			border-radius: var(--radius_bar);
-			background-color: rgba(255, 255, 255, 0.3);
+		@width: 420px;
+		@width_bar_items: 240px;
+		@width_link_items: @width - @width_bar_items;
 
-			backdrop-filter: blur(9px);
+		.mask {
+			z-index: 20;
+			background-color: rgba(0, 0, 0, 0.1);
+		}
 
-			.bar_item {
-				margin: 0 @padding_bar_item;
-				border-radius: var(--radius_bar_item);
-				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;
+		.bar_items_wrap {
+			z-index: 21;
+			width: @width;
+			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
-				aspect-ratio: 1;
+			backdrop-filter: blur(15px);
 
-				&.touched {
-					:local {
-						animation: touch_link 600ms ease-out;
+			.bar_items {
+				padding: 0 24px;
+				padding-left: 15px;
+				width: @width_bar_items;
+				border-right: 1px solid rgba(255, 255, 255, 0.05);
+
+				@height_options_wrap: 120px;
+
+				.bar_item {
+					padding: 9px;
+					border-radius: var(--radius_normal);
+					background-color: transparent;
+
+					&:hover {
+						background-color: rgba(255, 255, 255, 0.1);
+					}
+
+					.logo {
+						max-width: 42px;
+						border-radius: var(--radius_normal);
+					}
+
+					.name {
+						margin-left: 12px;
 					}
 				}
+
+				.scroll_wrap {
+					overflow-y: scroll;
+					padding: 9px 0;
+					height: calc(100% - @height_options_wrap);
+
+					.items_wrap {
+						padding: 9px 0;
+					}
+
+					.bar_items_normal_wrap {
+						border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+					}
+				}
+
+				.options_wrap {
+					padding-top: 9px;
+					padding-bottom: 24px;
+					height: @height_options_wrap;
+					border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+					.btn_all {
+						padding: 9px;
+						border-radius: var(--radius_normal);
+						background-color: transparent;
+						color: white;
+						opacity: 0.8;
+
+						&:hover {
+							opacity: 1;
+						}
+
+						.left {
+							.text {
+								margin-left: 12px;
+							}
+						}
+					}
+
+					.search_wrap {
+						padding: 9px;
+						color: white;
+
+						.input_search {
+							padding: 0 9px;
+							height: 33px;
+							border: 1px solid rgba(255, 255, 255, 0.2);
+							border-radius: var(--radius_normal);
+							background-color: transparent;
+
+							&:focus {
+								border: 1px solid rgba(255, 255, 255, 0.48);
+							}
+						}
+
+						.icon_search {
+							right: 16px;
+						}
+					}
+				}
+			}
+
+			.link_items {
+				width: @width_link_items;
 			}
 		}
 	}

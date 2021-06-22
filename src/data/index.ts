@@ -1,6 +1,6 @@
 import type { ILinkItem } from '@/typings/app'
 
-export const bar_items = [
+export const bar_items_normal = [
 	{
 		id: 0,
 		name: 'Mangguo TV',
@@ -56,7 +56,10 @@ export const bar_items = [
 		active: false,
 		opened: false,
 		image: require('@/assets/test_images/8f03e3943a4b730e328bb1d1906e5856.png')
-	},
+	}
+]
+
+export const bar_items_recent = [
 	{
 		id: 7,
 		name: 'Zhanku',
@@ -66,7 +69,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png')
 	},
 	{
-		id: 0,
+		id: 8,
 		name: 'Mangguo TV',
 		url: 'baidu.com',
 		active: false,
@@ -74,7 +77,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/af9edd3c1d5373427c762d51cf56fa1f.png')
 	},
 	{
-		id: 1,
+		id: 9,
 		name: 'Mukewang',
 		url: 'baidu.com',
 		active: false,
@@ -82,7 +85,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/ab397474a68cae01968ea26324f239c2.png')
 	},
 	{
-		id: 2,
+		id: 10,
 		name: 'Google',
 		url: 'baidu.com',
 		active: false,
@@ -90,7 +93,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/a23b4cf17327527ae66aad5d13f059da.png')
 	},
 	{
-		id: 3,
+		id: 11,
 		name: 'Youtube',
 		url: 'baidu.com',
 		active: false,
@@ -98,7 +101,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/a1c2d6a96b9a52002f3907bb8ff6fb3a.png')
 	},
 	{
-		id: 4,
+		id: 12,
 		name: 'Renren Community',
 		url: 'baidu.com',
 		active: false,
@@ -106,7 +109,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/150327085725.png')
 	},
 	{
-		id: 5,
+		id: 13,
 		name: 'Xueqiu',
 		url: 'baidu.com',
 		active: false,
@@ -114,7 +117,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/65416817a1e05e3b97f074a88c258091.png')
 	},
 	{
-		id: 6,
+		id: 14,
 		name: 'Twitter',
 		url: 'baidu.com',
 		active: false,
@@ -122,7 +125,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/5434725f7bd599d399c821b4daf1e285.png')
 	},
 	{
-		id: 7,
+		id: 15,
 		name: 'Zhanku',
 		url: 'baidu.com',
 		active: false,
@@ -130,7 +133,7 @@ export const bar_items = [
 		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png')
 	},
 	{
-		id: 0,
+		id: 16,
 		name: 'Mangguo TV',
 		url: 'baidu.com',
 		active: false,
@@ -138,64 +141,16 @@ export const bar_items = [
 		image: require('@/assets/test_images/5d40694f54e8e3a42f42a6d4187ff6f5.png')
 	},
 	{
-		id: 1,
+		id: 17,
 		name: 'Mukewang',
 		url: 'baidu.com',
 		active: false,
 		opened: false,
 		image: require('@/assets/test_images/0998004affb9478aefee50b93f132908.png')
-	},
-	{
-		id: 2,
-		name: 'Google',
-		url: 'baidu.com',
-		active: false,
-		opened: false,
-		image: require('@/assets/test_images/674583b12311fc9ff54d0282b18d7186.png')
-	},
-	{
-		id: 3,
-		name: 'Youtube',
-		url: 'baidu.com',
-		active: false,
-		opened: false,
-		image: require('@/assets/test_images/534995dd434a6e0e39a4521a5fe04f8e.png')
-	},
-	{
-		id: 4,
-		name: 'Renren Community',
-		url: 'baidu.com',
-		active: false,
-		opened: false,
-		image: require('@/assets/test_images/185330a52715cea8491b46cfc417c00a.png')
-	},
-	{
-		id: 5,
-		name: 'Xueqiu',
-		url: 'baidu.com',
-		active: false,
-		opened: false,
-		image: require('@/assets/test_images/93668fdf92bc2d37e74deda5ce0e2538.png')
-	},
-	{
-		id: 5,
-		name: 'Xueqiu',
-		url: 'baidu.com',
-		active: false,
-		opened: false,
-		image: require('@/assets/test_images/35b807f7b8916f56c77d5f16ca15613d.png')
 	}
 ]
 
 export const link_items: Array<ILinkItem> = [
-	// {
-	// 	id: -2,
-	// 	type: 'holder'
-	// },
-	// {
-	// 	id: -1,
-	// 	type: 'holder'
-	// },
 	{
 		id: 0,
 		name: '我的壁纸',

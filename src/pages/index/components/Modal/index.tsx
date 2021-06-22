@@ -34,16 +34,14 @@ const Index = (props: IPropsModal) => {
 				getContainer={false}
 				bodyStyle={{ padding: 0 }}
 				onCancel={() => onChangeVisible(false)}
-				transitionName='ant-zoom-big-fast'
 			>
 				<div className='modal_wrap w_100 border_box'>
-					<Tabs defaultActiveKey='1' centered animated>
-						<TabPane tab='Site' key='1'>
-							1
-						</TabPane>
-						<TabPane tab='Account' key='2'></TabPane>
-						<TabPane tab='Setting' key='3'></TabPane>
-						<TabPane tab='Wallpaper' key='4'></TabPane>
+					<Tabs defaultActiveKey='0' centered animated>
+						<TabPane tab='Site' key='0'></TabPane>
+						<TabPane tab='Link' key='1'></TabPane>
+						<TabPane tab='Wallpaper' key='2'></TabPane>
+						<TabPane tab='Account' key='3'></TabPane>
+						<TabPane tab='Setting' key='4'></TabPane>
 						<TabPane tab='About' key='5'></TabPane>
 					</Tabs>
 				</div>

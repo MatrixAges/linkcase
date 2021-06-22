@@ -7,7 +7,6 @@ import { link_items } from '@/data'
 import Wallpaper from './components/Wallpaper'
 import Note from './components/Note'
 import Site from './components/Site'
-import Holder from './components/Holder'
 import styles from './index.less'
 import type { ILinkItem } from '@/typings/app'
 
@@ -54,9 +53,6 @@ const Index = () => {
 						</Case>
 						<Case condition={item.type === 'note'}>
 							<Note item={item} {...props_site}></Note>
-						</Case>
-						<Case condition={item.type === 'holder'}>
-							<Holder></Holder>
 						</Case>
 						<Default>
 							<Site item={item}></Site>
