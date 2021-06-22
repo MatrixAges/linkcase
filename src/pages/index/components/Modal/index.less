@@ -24,9 +24,45 @@
 		}
 
 		.modal_wrap {
-			height: 600px;
+			overflow: hidden;
+			height: @height;
 			border-radius: var(--radius_modal);
-			background: fade(@color_bg, 96%);
+			background: @color_bg;
+			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+			@height: 640px;
+			@height_tab: 66px;
+
+			.ant-tabs-nav {
+				margin-bottom: 0;
+				height: @height_tab;
+				border-bottom: none;
+				background-color: @color_bg_sub;
+
+				.ant-tabs-tab {
+					color: #aaa;
+					font-weight: 500;
+				}
+
+				.ant-tabs-ink-bar {
+					background-color: transparent;
+
+					&::after {
+						position: absolute !important;
+						bottom: 0;
+						left: calc(50% - 6px);
+						width: 0;
+						border-right: 6px solid transparent;
+						border-bottom: 6px solid white;
+						border-left: 6px solid transparent;
+						content: '';
+					}
+				}
+			}
+
+			.ant-tabs-content-holder {
+				height: calc(@height - @height_tab);
+			}
 		}
 	}
 }

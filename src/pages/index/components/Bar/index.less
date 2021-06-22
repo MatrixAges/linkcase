@@ -1,5 +1,3 @@
-@import '../../var.less';
-
 @keyframes touch_link {
 	0% {
 		transform: translateY(0px);
@@ -15,13 +13,12 @@
 }
 
 ._local {
-	display: flex;
+	display: none;
 	overflow: visible;
 	overflow-x: hidden;
 	justify-content: center;
 	box-sizing: border-box;
 	max-width: 100%;
-	height: @height_bar;
 	border-radius: var(--radius_bar);
 
 	@padding_bar_item: 6px;
@@ -36,7 +33,6 @@
 
 			.bar_item {
 				margin: 0 @padding_bar_item;
-				width: calc(@height_bar - 4 * @padding_bar_item);
 				border-radius: var(--radius_bar_item);
 				background-position: center;
 				background-size: cover;

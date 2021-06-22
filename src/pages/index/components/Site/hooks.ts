@@ -12,20 +12,30 @@ export const useReactiveSize = (
 			if (!width) return
 			if (!height) return
 
-			let padding = 0.05 * height - 20
+			let padding = 0.08 * height - 0.03 * width
+			let link_row = 4
+			let link_col = 8
 
 			if (width <= 1024) {
-				if (height >= 1366) {
-					padding = 0.05 * height
+				padding = 0.08 * height - 0.05 * width
+				link_row = 5
+				link_col = 6
+
+				if (height >= 768) {
+					padding = 0.08 * height - 0.036 * width
+					link_row = 4
+					link_col = 6
+				}
+
+				if (width <= 768 && height >= 1024) {
+					padding = 0.08 * height - 0.054 * width
+					link_row = 5
+					link_col = 5
 				}
 			}
 
-			if (width <= 768) {
-				padding = 0.05 * height - 6
-			}
-
-			const size_column = (width - 0.024 * 2 * width) / 9 - 0.015
-			const size_row = (height - 0.036 * width - 24 - 36 - 80) / 5 - 0.015
+			const size_row = (height - 0.12 * 2 * width) / link_row - 0.015
+			const size_column = (width - 0.12 * 2 * width) / link_col - 0.015
 			const size_item = size_row - padding * 2 - 25
 
 			reactive.size_item = size_item

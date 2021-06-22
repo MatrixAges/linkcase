@@ -1,8 +1,10 @@
 import { memo } from 'react'
-import { Modal } from 'antd'
+import { Modal, Tabs } from 'antd'
 import styles from './index.less'
 import type { IModelApp } from 'umi'
 import type { IPropsModal } from '../../index'
+
+const { TabPane } = Tabs
 
 const Index = (props: IPropsModal) => {
 	const { visible, dispatch } = props
@@ -34,7 +36,17 @@ const Index = (props: IPropsModal) => {
 				onCancel={() => onChangeVisible(false)}
 				transitionName='ant-zoom-big-fast'
 			>
-				<div className='modal_wrap w_100 border_box'></div>
+				<div className='modal_wrap w_100 border_box'>
+					<Tabs defaultActiveKey='1' centered animated>
+						<TabPane tab='Site' key='1'>
+							1
+						</TabPane>
+						<TabPane tab='Account' key='2'></TabPane>
+						<TabPane tab='Setting' key='3'></TabPane>
+						<TabPane tab='Wallpaper' key='4'></TabPane>
+						<TabPane tab='About' key='5'></TabPane>
+					</Tabs>
+				</div>
 			</Modal>
 		</div>
 	)
