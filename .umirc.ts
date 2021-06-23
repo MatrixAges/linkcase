@@ -12,6 +12,8 @@ export default defineConfig({
 	webpack5: {},
 	fastRefresh: {},
 	targets: { chrome: 72 },
+	ignoreMomentLocale: true,
+	chunks: ['vendors', 'umi'],
 	favicon: '/logo/favicon.ico',
 	cssModulesTypescriptLoader: {},
 	dva: { immer: true, hmr: true },
@@ -37,9 +39,10 @@ export default defineConfig({
 			config.merge({
 				optimization: {
 					splitChunks: {
+						name: true,
 						chunks: 'all',
 						minSize: 30000,
-						minChunks: 3,
+						minChunks: 1,
 						automaticNameDelimiter: '.',
 						cacheGroups: {
 							vendor: {
