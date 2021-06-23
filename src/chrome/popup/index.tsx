@@ -1,12 +1,11 @@
 import { memo, useState } from 'react'
 import { connect, useIntl } from 'umi'
-import { Button, Input, Switch } from 'antd'
+import { Switch } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import useBookmarks from '@/hooks/use_bookmarks'
 import styles from './index.less'
+import 'antd/es/switch/style/index.less'
 import type { IModelApp, ConnectRC } from 'umi'
-
-const { TextArea } = Input
 
 interface IProps {
 	page_data: IModelApp
@@ -37,30 +36,30 @@ const Index: ConnectRC<IProps> = (props) => {
 							id: 'popup.input_items.link_name.name'
 						})}
 					</span>
-					<TextArea
+					<textarea
 						className='value_item input_name font_bold'
 						value='Why So Many Data Scientists Quit Good Jobs at Great Companies'
 						style={{ resize: 'none' }}
 						rows={2}
-					></TextArea>
+					></textarea>
 				</div>
 				<div className='link_folder input_item flex flex_column'>
 					{s_seraching ? (
 						<div className='search_wrap flex'>
-							<Input
+							<input
 								placeholder={intl.formatMessage({
 									id: 'popup.input_items.link_folder.search_placeholder'
 								})}
 								autoFocus
-							></Input>
-							<Button
+							></input>
+							<button
 								className='btn_cancel'
 								onClick={() => setSearching(false)}
 							>
 								{intl.formatMessage({
 									id: 'popup.input_items.link_folder.search_cancel'
 								})}
-							</Button>
+							</button>
 						</div>
 					) : (
 						<div className='name justify_between'>
@@ -102,9 +101,9 @@ const Index: ConnectRC<IProps> = (props) => {
 					</div>
 				</div>
 			</div>
-			<Button className='btn_confirm w_100' type='primary' size='large'>
+			<button className='btn_confirm w_100'>
 				{intl.formatMessage({ id: 'popup.confirm_text' })}
-			</Button>
+			</button>
 		</div>
 	)
 }

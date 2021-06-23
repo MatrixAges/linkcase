@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { connect, useIntl, Helmet } from 'umi'
 import Sites from './components/Site'
 import Indi from './components/Indi'
-import Bar from './components/Bar'
+import SideBar from './components/SideBar'
 import Modal from './components/Modal'
 import styles from './index.less'
 import type { IModelApp, ConnectRC, Dispatch } from 'umi'
@@ -34,7 +34,7 @@ const Index: ConnectRC<IProps> = (props) => {
 			<div className='content_wrap border_box absolute top_0 left_0 w_100 h_100 flex flex_column'>
 				<Sites></Sites>
 				<Indi></Indi>
-				<Bar></Bar>
+				<SideBar></SideBar>
 				<Modal {...props_modal}></Modal>
 			</div>
 		</div>

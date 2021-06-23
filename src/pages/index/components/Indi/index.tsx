@@ -5,11 +5,21 @@ const Index = () => {
 	return (
 		<div className={styles._local}>
 			<div className='indicate_items h_100 flex justify_center align_center'>
-				<span className='indicate_item transition_normal active'></span>
-				<span className='indicate_item transition_normal'></span>
-				<span className='indicate_item transition_normal'></span>
-				<span className='indicate_item transition_normal'></span>
-				<span className='indicate_item transition_normal'></span>
+				<button className='indicate_item_wrap transition_normal'>
+					<span className='indicate_item active'></span>
+				</button>
+				<button className='indicate_item_wrap transition_normal'>
+					<span className='indicate_item'></span>
+				</button>
+				<button className='indicate_item_wrap transition_normal'>
+					<span className='indicate_item'></span>
+				</button>
+				<button className='indicate_item_wrap transition_normal'>
+					<span className='indicate_item'></span>
+				</button>
+				<button className='indicate_item_wrap transition_normal'>
+					<span className='indicate_item'></span>
+				</button>
 			</div>
 		</div>
 	)

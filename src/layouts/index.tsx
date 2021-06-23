@@ -1,6 +1,5 @@
 import { memo, Fragment } from 'react'
 import { connect, useHistory, IRouteComponentProps } from 'umi'
-import { ConfigProvider } from 'antd'
 import useLang from '@/hooks/use_lang'
 import Loader from './components/Loader'
 import Bg from './components/Bg'
@@ -31,7 +30,7 @@ const Index: ConnectRC<IProps> = (props) => {
 	}
 
 	return (
-		<ConfigProvider locale={locale}>
+		<Fragment>
 			{location.pathname !== '/index.html' && (
 				<Fragment>
 					<Loader visible={!dom_ready}></Loader>
@@ -40,7 +39,7 @@ const Index: ConnectRC<IProps> = (props) => {
 				</Fragment>
 			)}
 			{children}
-		</ConfigProvider>
+		</Fragment>
 	)
 }
 

@@ -43,7 +43,7 @@ const Index = () => {
 				list={s_link_items}
 				setList={setLinkItems}
 				animation={300}
-				delay={120}
+				delay={240}
 				forceFallback
 			>
 				{s_link_items.map((item) => (

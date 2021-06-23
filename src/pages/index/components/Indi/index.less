@@ -10,15 +10,35 @@
 
 	:global {
 		.indicate_items {
-			.indicate_item {
-				margin: 0 6px;
-				width: 6px;
-				height: 6px;
+			.indicate_item_wrap {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-sizing: border-box;
+				padding: 6px;
+				width: 18px;
+				height: 18px;
 				border-radius: 50%;
-				background: rgba(255, 255, 255, 0.3);
+				cursor: pointer;
 
-				&.active {
-					background-color: rgba(255, 255, 255, 0.8);
+				&:hover {
+					background-color: rgba(255, 255, 255, 0.2);
+
+					.indicate_item {
+						background: rgba(255, 255, 255, 0.6);
+					}
+				}
+
+				.indicate_item {
+					display: inline-block;
+					width: 100%;
+					height: 100%;
+					border-radius: 50%;
+					background: rgba(255, 255, 255, 0.3);
+
+					&.active {
+						background-color: rgba(255, 255, 255, 0.8);
+					}
 				}
 			}
 		}

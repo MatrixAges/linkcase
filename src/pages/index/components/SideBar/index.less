@@ -1,21 +1,41 @@
 ._local {
-	display: none;
 	:global {
 		@width: 420px;
 		@width_bar_items: 240px;
 		@width_link_items: @width - @width_bar_items;
 
-		.mask {
-			z-index: 20;
-			background-color: rgba(0, 0, 0, 0.1);
+		.btn_apps_wrap {
+			position: fixed;
+			top: 21px;
+			left: 21px;
+			z-index: 4;
+			padding: 9px;
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			background-color: transparent;
+			opacity: 0.45;
+
+			&:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				opacity: 1;
+			}
+
+			.btn_apps {
+				border: 1px solid rgba(255, 255, 255, 0.45);
+				border-radius: 15px;
+				background-color: transparent;
+				color: white;
+
+				.icon_app {
+					font-size: 16px;
+				}
+			}
 		}
 
 		.bar_items_wrap {
-			z-index: 21;
 			width: @width;
 			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-
-			backdrop-filter: blur(15px);
 
 			.bar_items {
 				padding: 0 24px;
@@ -27,7 +47,7 @@
 
 				.bar_item {
 					padding: 9px;
-					border-radius: var(--radius_normal);
+					border-radius: @radius_normal;
 					background-color: transparent;
 
 					&:hover {
@@ -36,7 +56,7 @@
 
 					.logo {
 						max-width: 42px;
-						border-radius: var(--radius_normal);
+						border-radius: @radius_normal;
 					}
 
 					.name {
@@ -66,7 +86,7 @@
 
 					.btn_all {
 						padding: 9px;
-						border-radius: var(--radius_normal);
+						border-radius: @radius_normal;
 						background-color: transparent;
 						color: white;
 						opacity: 0.8;
@@ -86,12 +106,23 @@
 						padding: 9px;
 						color: white;
 
+						&:hover {
+							.icon_search {
+								opacity: 1;
+							}
+						}
+
 						.input_search {
 							padding: 0 9px;
 							height: 33px;
 							border: 1px solid rgba(255, 255, 255, 0.2);
-							border-radius: var(--radius_normal);
+							border-radius: @radius_normal;
 							background-color: transparent;
+							color: white;
+
+							&::placeholder {
+								color: rgba(255, 255, 255, 0.3);
+							}
 
 							&:focus {
 								border: 1px solid rgba(255, 255, 255, 0.48);
@@ -100,6 +131,7 @@
 
 						.icon_search {
 							right: 16px;
+							opacity: 0.6;
 						}
 					}
 				}

@@ -5,56 +5,42 @@ export const bar_items_normal = [
 		id: 0,
 		name: 'Mangguo TV',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/5d40694f54e8e3a42f42a6d4187ff6f5.png')
 	},
 	{
 		id: 1,
 		name: 'Mukewang',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/6e5da7bc6eaf3ecce1ca1affcf20fca5.png')
 	},
 	{
 		id: 2,
 		name: 'Google',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/9c143bceb17150ce8db6553fdc995136.png')
 	},
 	{
 		id: 3,
 		name: 'Youtube',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/37d396f9975e494b10ac8696d64ebb2a.png')
 	},
 	{
 		id: 4,
 		name: 'Renren Community',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/8bffc9cf5c9f6e5980bf21e7af3a4462.png')
 	},
 	{
 		id: 5,
 		name: 'Xueqiu',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/8d5d3d6a4cd5011741d4160eddc0f5eb.png')
 	},
 	{
 		id: 6,
 		name: 'Twitter',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/8f03e3943a4b730e328bb1d1906e5856.png')
 	}
 ]
@@ -64,88 +50,66 @@ export const bar_items_recent = [
 		id: 7,
 		name: 'Zhanku',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png')
 	},
 	{
 		id: 8,
 		name: 'Mangguo TV',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/af9edd3c1d5373427c762d51cf56fa1f.png')
 	},
 	{
 		id: 9,
 		name: 'Mukewang',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/ab397474a68cae01968ea26324f239c2.png')
 	},
 	{
 		id: 10,
 		name: 'Google',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/a23b4cf17327527ae66aad5d13f059da.png')
 	},
 	{
 		id: 11,
 		name: 'Youtube',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/a1c2d6a96b9a52002f3907bb8ff6fb3a.png')
 	},
 	{
 		id: 12,
 		name: 'Renren Community',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/150327085725.png')
 	},
 	{
 		id: 13,
 		name: 'Xueqiu',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/65416817a1e05e3b97f074a88c258091.png')
 	},
 	{
 		id: 14,
 		name: 'Twitter',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/5434725f7bd599d399c821b4daf1e285.png')
 	},
 	{
 		id: 15,
 		name: 'Zhanku',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png')
 	},
 	{
 		id: 16,
 		name: 'Mangguo TV',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/5d40694f54e8e3a42f42a6d4187ff6f5.png')
 	},
 	{
 		id: 17,
 		name: 'Mukewang',
 		url: 'baidu.com',
-		active: false,
-		opened: false,
 		image: require('@/assets/test_images/0998004affb9478aefee50b93f132908.png')
 	}
 ]

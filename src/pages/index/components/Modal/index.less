@@ -1,24 +1,31 @@
 ._local {
 	:global {
-		.btn_more {
+		.btn_more_wrap {
 			position: fixed;
-			top: 30px;
-			right: 30px;
+			top: 21px;
+			right: 21px;
 			z-index: 4;
-			width: 30px;
-			height: 30px;
-			border: 1px solid rgba(255, 255, 255, 0.3);
+			padding: 9px;
+			width: 48px;
+			height: 48px;
 			border-radius: 50%;
 			background-color: transparent;
-			opacity: 0.8;
+			opacity: 0.6;
 
 			&:hover {
-				background-color: rgba(0, 0, 0, 0.3);
+				background-color: rgba(255, 255, 255, 0.2);
 				opacity: 1;
 			}
 
-			.logo {
-				max-width: 12px;
+			.btn_more {
+				border: 1px solid rgba(255, 255, 255, 0.45);
+				border-radius: 15px;
+				background-color: transparent;
+				color: white;
+
+				.logo {
+					max-width: 12px;
+				}
 			}
 		}
 
@@ -28,36 +35,15 @@
 
 		.modal_wrap {
 			overflow: hidden;
+			width: 900px;
 			height: @height;
-			border-radius: var(--radius_modal);
-			background: fade(@color_bg_sub, 90%);
+			border-radius: @radius_modal;
+			background: fade(@color_bg_sub, 84%);
 			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
-			backdrop-filter: blur(30px);
+			backdrop-filter: blur(45px);
 			@height: 640px;
 			@height_tab: 66px;
-
-			.ant-tabs-nav {
-				margin-bottom: 0;
-				height: @height_tab;
-
-				&::before {
-					border-bottom: none;
-				}
-
-				.ant-tabs-tab {
-					color: #aaa;
-					font-weight: 500;
-				}
-
-				.ant-tabs-ink-bar {
-					display: none;
-				}
-			}
-
-			.ant-tabs-content-holder {
-				height: calc(@height - @height_tab);
-			}
 		}
 	}
 }
