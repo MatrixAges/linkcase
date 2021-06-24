@@ -1,74 +1,75 @@
 {
-      "name": "linkcase",
-      "version": "0.0.1",
-      "description": "A better way to reuse your bookcase and favorites.",
-      "homepage": "linkcase.matrixages.com",
-      "author": "Matrixages<xiewendao@gmail.com>",
-      "license": "GPL3.0",
-      "repository": {
-            "type": "git",
-            "url": "git@github.com:MatrixAges/linkcase.git"
-      },
-      "bugs": {
-            "url": "https://github.com/MatrixAges/linkcase/issues"
-      },
-      "private": false,
-      "scripts": {
-            "start": "umi dev",
-            "build": "ANALYZE=1 umi build",
-            "zip": "yarn build && ts-node ./scripts/zip",
-            "postinstall": "umi generate tmp",
-            "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-            "prettier:normal": "prettier --write '**/*.{js,jsx,less,md,json}'",
-            "prettier:x": "prettier --write '**/*.{tsx,ts}'",
-            "test": "umi-test",
-            "test:coverage": "umi-test --coverage"
-      },
-      "gitHooks": {
-            "pre-commit": "lint-staged --allow-empty"
-      },
-      "lint-staged": {
-            "*.{js,jsx,less,md,json}": [
-                  "prettier --write"
-            ],
-            "*.ts?(x)": [
-                  "prettier --parser=typescript --write"
-            ]
-      },
-      "dependencies": {
-            "@extend-chrome/clipboard": "^2.0.0",
-            "@extend-chrome/messages": "^1.2.2",
-            "@extend-chrome/notify": "^2.0.0",
-            "@extend-chrome/storage": "^1.4.5",
-            "ahooks": "^2.10.4",
-            "antd": "^4.16.3",
-            "dva-model-extend": "^0.1.2",
-            "fast-json-stringify": "^2.6.0",
-            "lodash-es": "^4.17.21",
-            "react": "17.0.2",
-            "react-dom": "17.0.2",
-            "react-if": "^4.0.1",
-            "react-sortablejs": "^6.0.0",
-            "recharts": "^2.0.9",
-            "sortablejs": "^1.13.0",
-            "umi": "^3.4.25"
-      },
-      "devDependencies": {
-            "@types/chrome": "^0.0.144",
-            "@types/lodash-es": "^4.17.4",
-            "@types/sortablejs": "^1.10.6",
-            "@types/store": "^2.0.2",
-            "@umijs/plugin-esbuild": "^1.3.1",
-            "@umijs/preset-react": "1.8.13",
-            "@umijs/test": "^3.4.23",
-            "archiver": "^5.3.0",
-            "less-vars-to-js": "^1.3.0",
-            "lint-staged": "^11.0.0",
-            "prettier": "^2.3.0",
-            "ts-node": "^10.0.0",
-            "typescript": "^4.3.2",
-            "umi-plugin-extensions": "^0.6.0",
-            "yorkie": "^2.0.0"
-      },
-      "__npminstall_done": false
+  "name": "linkcase",
+  "version": "0.0.1",
+  "description": "A better way to reuse your bookcase and favorites.",
+  "homepage": "linkcase.matrixages.com",
+  "author": "Matrixages<xiewendao@gmail.com>",
+  "license": "GPL3.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MatrixAges/linkcase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MatrixAges/linkcase/issues"
+  },
+  "private": false,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "build:a": "ANALYZE=1 umi build",
+    "zip": "yarn build && ts-node ./scripts/zip",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "prettier:normal": "prettier --write '**/*.{js,jsx,less,md,json}'",
+    "prettier:x": "prettier --write '**/*.{tsx,ts}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged --allow-empty"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@extend-chrome/clipboard": "^2.0.0",
+    "@extend-chrome/messages": "^1.2.2",
+    "@extend-chrome/notify": "^2.0.0",
+    "@extend-chrome/storage": "^1.4.5",
+    "ahooks": "^2.10.4",
+    "dva-model-extend": "^0.1.2",
+    "fast-json-stringify": "^2.6.0",
+    "lodash-es": "^4.17.21",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-if": "^4.0.1",
+    "react-sortablejs": "^6.0.0",
+    "recharts": "^2.0.9",
+    "sortablejs": "^1.13.0",
+    "umi": "^3.4.25"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.144",
+    "@types/lodash-es": "^4.17.4",
+    "@types/sortablejs": "^1.10.6",
+    "@types/store": "^2.0.2",
+    "@umijs/plugin-esbuild": "^1.3.1",
+    "@umijs/preset-react": "1.8.13",
+    "@umijs/test": "^3.4.23",
+    "archiver": "^5.3.0",
+    "less-vars-to-js": "^1.3.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2",
+    "umi-plugin-extensions": "^0.6.0",
+    "umi-plugin-locale-ignore-moment": "^1.0.1",
+    "yorkie": "^2.0.0"
+  },
+  "__npminstall_done": false
 }

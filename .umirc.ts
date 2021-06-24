@@ -11,7 +11,7 @@ export default defineConfig({
 	cssnano: {},
 	webpack5: {},
 	fastRefresh: {},
-	targets: { chrome: 72 },
+	inlineLimit: 10,
 	ignoreMomentLocale: true,
 	chunks: ['vendors', 'umi'],
 	favicon: '/logo/favicon.ico',
@@ -19,7 +19,7 @@ export default defineConfig({
 	dva: { immer: true, hmr: true },
 	nodeModulesTransform: { type: 'none' },
 	alias: { R: resolve(__dirname, './') },
-	locale: { antd: false, default: 'en-US' },
+	mylocale: { antd: false, default: 'en-US' },
 	links: [{ rel: 'preconnect', href: 'https://fonts.lug.ustc.edu.cn' }],
 	styles: [`@import url('https://fonts.lug.ustc.edu.cn/css2?family=Open+Sans&display=swap')`],
 	routes: [
@@ -39,7 +39,6 @@ export default defineConfig({
 			config.merge({
 				optimization: {
 					splitChunks: {
-						name: true,
 						chunks: 'all',
 						minSize: 30000,
 						minChunks: 1,
