@@ -1,7 +1,7 @@
 import { memo, useState } from 'react'
 import { AppstoreOutlined, RightOutlined, SearchOutlined } from '@ant-design/icons'
 import Modal from '@/components/Modal'
-import { bar_items_normal, bar_items_recent } from '@/data'
+import { bar_items_normal, bar_items_recent } from '@/data/mock'
 import styles from './index.less'
 import type { ILinkItem } from '@/typings/app'
 

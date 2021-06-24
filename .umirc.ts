@@ -3,6 +3,12 @@ import { defineConfig } from 'umi'
 import Extension, { is_dev } from './config/extension'
 import Theme from './src/theme'
 
+const prod_config = !is_dev
+	? {
+			chunks: ['vendors', 'umi']
+	  }
+	: {}
+
 export default defineConfig({
 	theme: Theme,
 	extensions: Extension,
@@ -13,15 +19,13 @@ export default defineConfig({
 	fastRefresh: {},
 	inlineLimit: 10,
 	ignoreMomentLocale: true,
-	chunks: ['vendors', 'umi'],
 	favicon: '/logo/favicon.ico',
 	cssModulesTypescriptLoader: {},
 	dva: { immer: true, hmr: true },
 	nodeModulesTransform: { type: 'none' },
 	alias: { R: resolve(__dirname, './') },
 	mylocale: { antd: false, default: 'en-US' },
-	links: [{ rel: 'preconnect', href: 'https://fonts.lug.ustc.edu.cn' }],
-	styles: [`@import url('https://fonts.lug.ustc.edu.cn/css2?family=Open+Sans&display=swap')`],
+	...prod_config,
 	routes: [
 		{
 			exact: false,
@@ -29,8 +33,8 @@ export default defineConfig({
 			component: '@/layouts',
 			routes: [
 				{ exact: true, path: '/index', component: '@/chrome/popup' },
-				{ exact: true, path: '/options', component: '@/pages/index' },
-				{ exact: true, path: '/ex', component: '@/pages/ex' }
+				{ exact: true, path: '/options', component: '@/pages' },
+				{ exact: true, path: '/site', component: '@/pages/site' }
 			]
 		}
 	],

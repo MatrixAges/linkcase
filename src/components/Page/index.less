@@ -1,0 +1,11 @@
+._local {
+	position: fixed;
+	top: calc((100vh - @height_page) / 2 + @height_tab);
+	left: calc((100vw - @width_page) / 2);
+	z-index: 11;
+	overflow: scroll;
+	width: @width_page;
+	height: calc(@height_page - @height_tab);
+	border-bottom-right-radius: @radius_modal;
+	border-bottom-left-radius: @radius_modal;
+}

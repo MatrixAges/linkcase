@@ -1,14 +1,15 @@
 import { memo } from 'react'
-import { connect, useIntl, Helmet } from 'umi'
+import { useIntl, Helmet } from 'umi'
 import Sites from './components/Site'
 import Indi from './components/Indi'
 import SideBar from './components/SideBar'
 import Modal from './components/Modal'
 import styles from './index.less'
-import type { IModelApp, ConnectRC, Dispatch } from 'umi'
+import type { IModelApp, Dispatch } from 'umi'
 
 interface IProps {
 	page_data: IModelApp
+	dispatch: Dispatch
 }
 
 export interface IPropsModal {
@@ -16,7 +17,7 @@ export interface IPropsModal {
 	dispatch: Dispatch
 }
 
-const Index: ConnectRC<IProps> = (props) => {
+const Index = (props: IProps) => {
 	const { page_data, dispatch } = props
 	const { visible_modal } = page_data
 	const intl = useIntl()
@@ -41,12 +42,4 @@ const Index: ConnectRC<IProps> = (props) => {
 	)
 }
 
-interface IPageData {
-	app: IModelApp
-}
-
-const getInitialProps = ({ app }: IPageData) => ({
-	page_data: app
-})
-
-export default memo(connect(getInitialProps)(Index))
+export default memo(Index)

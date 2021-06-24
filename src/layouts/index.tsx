@@ -4,6 +4,7 @@ import useLang from '@/hooks/use_lang'
 import Loader from './components/Loader'
 import Bg from './components/Bg'
 import Backdrop from './components/Backdrop'
+import Base from './base'
 import type { IModelApp, ConnectRC } from 'umi'
 
 interface IProps extends IRouteComponentProps {
@@ -17,8 +18,9 @@ export interface IPropsBg {
 const Index: ConnectRC<IProps> = (props) => {
 	const { dispatch, page_data, children } = props
 	const { lang, dom_ready } = page_data
-	const locale = useLang(lang)
 	const { location } = useHistory()
+
+	useLang(lang)
 
 	const props_bg: IPropsBg = {
 		domToReady: () => {
@@ -36,6 +38,7 @@ const Index: ConnectRC<IProps> = (props) => {
 					<Loader visible={!dom_ready}></Loader>
 					<Bg {...props_bg}></Bg>
 					<Backdrop></Backdrop>
+					<Base page_data={page_data} dispatch={dispatch}></Base>
 				</Fragment>
 			)}
 			{children}

@@ -1,17 +1,26 @@
 import { memo } from 'react'
+import { Link, useHistory } from 'umi'
 import Modal from '@/components/Modal'
+import { tab_items } from '@/data/options'
 import styles from './index.less'
 import type { IModelApp } from 'umi'
 import type { IPropsModal } from '../../index'
 
 const Index = (props: IPropsModal) => {
 	const { visible, dispatch } = props
+	const history = useHistory()
 
 	const onChangeVisible = (v: boolean) => {
 		dispatch({
 			type: 'app/updateState',
 			payload: { visible_modal: v } as IModelApp
 		})
+	}
+
+	const onClose = () => {
+		onChangeVisible(false)
+
+		history.push('/options.html')
 	}
 
 	return (
@@ -24,16 +33,19 @@ const Index = (props: IPropsModal) => {
 					<img className='logo' src='/logo/linkcase@128_white.png' alt='logo' />
 				</div>
 			</button>
-			<Modal visible={visible} onClose={() => onChangeVisible(false)} maskClosable>
+			<Modal visible={visible} onClose={onClose} maskClosable>
 				<div className='modal_wrap w_100 border_box'>
-					{/* <Tabs defaultActiveKey='0' centered animated>
-						<TabPane tab='Site' key='0'></TabPane>
-						<TabPane tab='Link' key='1'></TabPane>
-						<TabPane tab='Wallpaper' key='2'></TabPane>
-						<TabPane tab='Account' key='3'></TabPane>
-						<TabPane tab='Setting' key='4'></TabPane>
-						<TabPane tab='About' key='5'></TabPane>
-					</Tabs> */}
+					<div className='tab_items w_100 border_box flex justify_center align_center'>
+						{tab_items.map((item) => (
+							<Link
+								className='tab_item'
+								to={`/${item.to}`}
+								key={item.id}
+							>
+								<span className='name'>{item.name}</span>
+							</Link>
+						))}
+					</div>
 				</div>
 			</Modal>
 		</div>

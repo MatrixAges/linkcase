@@ -35,15 +35,25 @@
 
 		.modal_wrap {
 			overflow: hidden;
-			width: 900px;
-			height: @height;
+			width: @width_page;
+			height: @height_page;
 			border-radius: @radius_modal;
-			background: fade(@color_bg_sub, 84%);
+			background: fade(@color_bg_sub, 87%);
 			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
 			backdrop-filter: blur(45px);
-			@height: 640px;
-			@height_tab: 66px;
+
+			.tab_items {
+				height: @height_tab;
+				border-bottom: 1px solid @color_border;
+				font-size: 14px;
+
+				.tab_item {
+					padding: 0 24px;
+					color: black;
+					text-decoration: none;
+				}
+			}
 		}
 	}
 }

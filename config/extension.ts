@@ -41,7 +41,7 @@ export default Object.assign(
 	is_dev
 		? {
 				optionsUI: {
-					page: '@/pages/index',
+					page: '@/pages',
 					openInTab: true
 				}
 		  }
