@@ -2,7 +2,7 @@
 	:global {
 		@width: 420px;
 		@width_bar_items: 240px;
-		@width_link_items: @width - @width_bar_items;
+		@width_quicker_wrap: @width - @width_bar_items;
 
 		.btn_apps_wrap {
 			position: fixed;
@@ -137,8 +137,60 @@
 				}
 			}
 
-			.link_items {
-				width: @width_link_items;
+			.quicker_wrap {
+				width: @width_quicker_wrap;
+				color: white;
+
+				.padding_wrap {
+					position: relative;
+					padding: 18px;
+
+					&::after {
+						position: absolute;
+						bottom: 0;
+						left: 15%;
+						width: 70%;
+						height: 1px;
+						background-color: rgba(255, 255, 255, 0.1);
+						content: '';
+					}
+
+					.avatar_wrap {
+						padding: 9px;
+						border-radius: @radius_normal;
+
+						&:hover {
+							background-color: rgba(255, 255, 255, 0.1);
+						}
+
+						.avatar {
+							margin-right: 9px;
+							max-width: 36px;
+							border-radius: 50%;
+						}
+
+						.name {
+							font-size: 14px;
+						}
+					}
+				}
+
+				.quecker_items {
+					padding: 12px 24px;
+
+					.quecker_item {
+						padding: 9px;
+						border-radius: @radius_normal;
+
+						&:hover {
+							background-color: rgba(255, 255, 255, 0.1);
+						}
+
+						.name {
+							margin-left: 12px;
+						}
+					}
+				}
 			}
 		}
 	}

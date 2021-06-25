@@ -3,37 +3,37 @@ export const tab_items = [
 		id: 0,
 		name: 'Site',
 		to: 'site.html',
-		icon: 'FireOutlined'
+		icon: 'AppstoreOutlined'
 	},
 	{
 		id: 1,
 		name: 'Link',
 		to: 'link.html',
-		icon: 'ShareAltOutlined'
+		icon: 'LinkOutlined'
+	},
+	{
+		id: -1,
+		name: 'Widget',
+		to: 'widget.html',
+		icon: 'BorderOutlined'
 	},
 	{
 		id: 2,
 		name: 'Wallpaper',
 		to: 'wallpaper.html',
-		icon: 'ExperimentOutlined'
+		icon: 'SkinOutlined'
 	},
 	{
 		id: 3,
 		name: 'Account',
 		to: 'account.html',
-		icon: 'CodeSandboxOutlined'
+		icon: 'UserOutlined'
 	},
 	{
 		id: 4,
 		name: 'Setting',
 		to: 'setting.html',
-		icon: 'BellOutlined'
-	},
-	{
-		id: 5,
-		name: 'About',
-		to: 'about.html',
-		icon: 'BellOutlined'
+		icon: 'SettingOutlined'
 	}
 ]
 
@@ -116,7 +116,7 @@ export const site_category = [
 	{
 		id: -3,
 		name: 'Work',
-		icon: ''
+		icon: 'RobotOutlined'
 	},
 	{
 		id: 13,
@@ -127,11 +127,6 @@ export const site_category = [
 		id: 14,
 		name: 'Finance',
 		icon: 'DollarCircleOutlined'
-	},
-	{
-		id: 15,
-		name: 'Stock',
-		icon: 'MacCommandOutlined'
 	},
 	{
 		id: 16,

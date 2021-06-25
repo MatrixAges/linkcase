@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import styles from './index.less'
-import bg from '@/assets/test_images/lake.png'
+import bg from '@/assets/test_images/Iridescence.png'
 import type { IPropsBg } from '../../index'
 
 const Index = (props: IPropsBg) => {

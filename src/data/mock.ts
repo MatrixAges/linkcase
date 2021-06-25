@@ -513,3 +513,230 @@ export const link_items: Array<ILinkItem> = [
 		image: require('@/assets/test_images/35b807f7b8916f56c77d5f16ca15613d.png')
 	}
 ]
+
+export const site_items = [
+	{
+		id: 7,
+		name: 'Zhanku',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png'),
+		desc: 'An interactive platform for Chinese designers'
+	},
+	{
+		id: 8,
+		name: 'Mangguo TV',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af9edd3c1d5373427c762d51cf56fa1f.png'),
+		desc: 'An online video site that everyone is watching'
+	},
+	{
+		id: 9,
+		name: 'Mukewang',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/ab397474a68cae01968ea26324f239c2.png'),
+		desc: 'IT skills learning platform'
+	},
+	{
+		id: 10,
+		name: 'Google',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a23b4cf17327527ae66aad5d13f059da.png'),
+		desc: 'Artificial intelligence-based search engine'
+	},
+	{
+		id: 11,
+		name: 'Youtube',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a1c2d6a96b9a52002f3907bb8ff6fb3a.png'),
+		desc: 'The world`s largest UGC video site'
+	},
+	{
+		id: 12,
+		name: 'Renren Community',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/150327085725.png'),
+		desc: 'A good learning and communication platform for product managers'
+	},
+	{
+		id: 13,
+		name: 'Xueqiu',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/65416817a1e05e3b97f074a88c258091.png'),
+		desc: 'The smart money is here'
+	},
+	{
+		id: 14,
+		name: 'Twitter',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/5434725f7bd599d399c821b4daf1e285.png'),
+		desc: 'Open Social Platforms'
+	},
+	{
+		id: 7,
+		name: 'Zhanku',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png'),
+		desc: 'An interactive platform for Chinese designers'
+	},
+	{
+		id: 8,
+		name: 'Mangguo TV',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af9edd3c1d5373427c762d51cf56fa1f.png'),
+		desc: 'An online video site that everyone is watching'
+	},
+	{
+		id: 9,
+		name: 'Mukewang',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/ab397474a68cae01968ea26324f239c2.png'),
+		desc: 'IT skills learning platform'
+	},
+	{
+		id: 10,
+		name: 'Google',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a23b4cf17327527ae66aad5d13f059da.png'),
+		desc: 'Artificial intelligence-based search engine'
+	},
+	{
+		id: 11,
+		name: 'Youtube',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a1c2d6a96b9a52002f3907bb8ff6fb3a.png'),
+		desc: 'The world`s largest UGC video site'
+	},
+	{
+		id: 12,
+		name: 'Renren Community',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/150327085725.png'),
+		desc: 'A good learning and communication platform for product managers'
+	},
+	{
+		id: 13,
+		name: 'Xueqiu',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/65416817a1e05e3b97f074a88c258091.png'),
+		desc: 'The smart money is here'
+	},
+	{
+		id: 14,
+		name: 'Twitter',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/5434725f7bd599d399c821b4daf1e285.png'),
+		desc: 'Open Social Platforms'
+	},
+	{
+		id: 7,
+		name: 'Zhanku',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png'),
+		desc: 'An interactive platform for Chinese designers'
+	},
+	{
+		id: 8,
+		name: 'Mangguo TV',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af9edd3c1d5373427c762d51cf56fa1f.png'),
+		desc: 'An online video site that everyone is watching'
+	},
+	{
+		id: 9,
+		name: 'Mukewang',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/ab397474a68cae01968ea26324f239c2.png'),
+		desc: 'IT skills learning platform'
+	},
+	{
+		id: 10,
+		name: 'Google',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a23b4cf17327527ae66aad5d13f059da.png'),
+		desc: 'Artificial intelligence-based search engine'
+	},
+	{
+		id: 11,
+		name: 'Youtube',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a1c2d6a96b9a52002f3907bb8ff6fb3a.png'),
+		desc: 'The world`s largest UGC video site'
+	},
+	{
+		id: 12,
+		name: 'Renren Community',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/150327085725.png'),
+		desc: 'A good learning and communication platform for product managers'
+	},
+	{
+		id: 13,
+		name: 'Xueqiu',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/65416817a1e05e3b97f074a88c258091.png'),
+		desc: 'The smart money is here'
+	},
+	{
+		id: 14,
+		name: 'Twitter',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/5434725f7bd599d399c821b4daf1e285.png'),
+		desc: 'Open Social Platforms'
+	},
+	{
+		id: 7,
+		name: 'Zhanku',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af854949e0e7086b62c222744f898025.png'),
+		desc: 'An interactive platform for Chinese designers'
+	},
+	{
+		id: 8,
+		name: 'Mangguo TV',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/af9edd3c1d5373427c762d51cf56fa1f.png'),
+		desc: 'An online video site that everyone is watching'
+	},
+	{
+		id: 9,
+		name: 'Mukewang',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/ab397474a68cae01968ea26324f239c2.png'),
+		desc: 'IT skills learning platform'
+	},
+	{
+		id: 10,
+		name: 'Google',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a23b4cf17327527ae66aad5d13f059da.png'),
+		desc: 'Artificial intelligence-based search engine'
+	},
+	{
+		id: 11,
+		name: 'Youtube',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/a1c2d6a96b9a52002f3907bb8ff6fb3a.png'),
+		desc: 'The world`s largest UGC video site'
+	},
+	{
+		id: 12,
+		name: 'Renren Community',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/150327085725.png'),
+		desc: 'A good learning and communication platform for product managers'
+	},
+	{
+		id: 13,
+		name: 'Xueqiu',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/65416817a1e05e3b97f074a88c258091.png'),
+		desc: 'The smart money is here'
+	},
+	{
+		id: 14,
+		name: 'Twitter',
+		url: 'baidu.com',
+		image: require('@/assets/test_images/5434725f7bd599d399c821b4daf1e285.png'),
+		desc: 'Open Social Platforms'
+	}
+]

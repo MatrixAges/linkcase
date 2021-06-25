@@ -1,7 +1,9 @@
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { Link, useHistory } from 'umi'
+import { useUpdate } from 'ahooks'
 import Modal from '@/components/Modal'
 import { tab_items } from '@/data/options'
+import Icons from '@/icons/TabItems'
 import styles from './index.less'
 import type { IModelApp } from 'umi'
 import type { IPropsModal } from '../../index'
@@ -9,19 +11,29 @@ import type { IPropsModal } from '../../index'
 const Index = (props: IPropsModal) => {
 	const { visible, dispatch } = props
 	const history = useHistory()
+	const update = useUpdate()
+	const {
+		location: { pathname }
+	} = history
 
-	const onChangeVisible = (v: boolean) => {
+	const onChangeVisible = useCallback((v: boolean) => {
 		dispatch({
 			type: 'app/updateState',
 			payload: { visible_modal: v } as IModelApp
 		})
-	}
 
-	const onClose = () => {
-		onChangeVisible(false)
+		if (v) {
+			setTimeout(() => {
+				history.push('/site.html')
 
-		history.push('/options.html')
-	}
+				update()
+			}, 300)
+		} else {
+			history.push('/options.html')
+
+			update()
+		}
+	}, [])
 
 	return (
 		<div className={styles._local}>
@@ -33,18 +45,53 @@ const Index = (props: IPropsModal) => {
 					<img className='logo' src='/logo/linkcase@128_white.png' alt='logo' />
 				</div>
 			</button>
-			<Modal visible={visible} onClose={onClose} maskClosable>
+			<Modal
+				visible={visible}
+				onClose={() => onChangeVisible(false)}
+				maskClosable
+				maskVisible
+			>
 				<div className='modal_wrap w_100 border_box'>
-					<div className='tab_items w_100 border_box flex justify_center align_center'>
-						{tab_items.map((item) => (
+					<div className='tab_items border_box flex flex_column justify_between'>
+						<div className='top w_100 flex flex_column'>
+							{tab_items.map(
+								(item) =>
+									item.name !== 'Setting' && (
+										<Link
+											className={`
+                                                                        tab_item flex flex_column justify_center align_center
+                                                                        ${
+													pathname ===
+													'/' + item.to
+														? 'active'
+														: ''
+												}
+                                                                  `}
+											to={`/${item.to}`}
+											key={item.id}
+											onClick={update}
+										>
+											<Icons icon={item.icon}></Icons>
+										</Link>
+									)
+							)}
+						</div>
+						<div className='bottom w_100 flex flex_column'>
 							<Link
-								className='tab_item'
-								to={`/${item.to}`}
-								key={item.id}
+								className={`
+                                                      tab_item flex flex_column justify_center align_center
+                                                      ${
+										pathname === '/setting.html'
+											? 'active'
+											: ''
+									}
+                                                `}
+								to='/setting.html'
+								onClick={update}
 							>
-								<span className='name'>{item.name}</span>
+								<Icons icon='SettingOutlined'></Icons>
 							</Link>
-						))}
+						</div>
 					</div>
 				</div>
 			</Modal>

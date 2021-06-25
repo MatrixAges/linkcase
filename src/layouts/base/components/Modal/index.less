@@ -38,20 +38,38 @@
 			width: @width_page;
 			height: @height_page;
 			border-radius: @radius_modal;
-			background: fade(@color_bg_sub, 87%);
+			background: @color_bg_modal;
 			box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 
-			backdrop-filter: blur(45px);
-
 			.tab_items {
-				height: @height_tab;
-				border-bottom: 1px solid @color_border;
-				font-size: 14px;
+				padding: 15px;
+				width: @width_tab;
+				height: 100%;
+				background: @color_bg_modal_content;
 
 				.tab_item {
-					padding: 0 24px;
+					margin-bottom: 18px;
+					width: 100%;
+					border-radius: @radius_normal;
+					border-radius: 50%;
 					color: black;
 					text-decoration: none;
+					font-size: 18px;
+
+					aspect-ratio: 1;
+
+					&:hover {
+						background-color: @color_bg_sub;
+					}
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+
+					&.active {
+						position: relative;
+						background-color: @color_bg_sub;
+					}
 				}
 			}
 		}

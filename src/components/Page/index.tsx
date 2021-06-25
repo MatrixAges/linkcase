@@ -6,13 +6,18 @@ import type { IModelApp } from 'umi'
 interface IProps {
 	children: React.ReactNode
 	page_data: IModelApp
+	className?: string
 }
 
 const Index = (props: IProps) => {
-	const { children, page_data } = props
+	const { children, page_data, className } = props
 	const { visible_modal } = page_data
 
-	return visible_modal ? <div className={styles._local}>{children}</div> : <Fragment></Fragment>
+	return visible_modal ? (
+		<div className={styles._local + ' ' + className}>{children}</div>
+	) : (
+		<Fragment></Fragment>
+	)
 }
 
 interface IPageData {

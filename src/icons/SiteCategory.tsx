@@ -15,9 +15,9 @@ import {
 	CoffeeOutlined,
 	RocketOutlined,
 	ScheduleOutlined,
+	RobotOutlined,
 	SendOutlined,
 	DollarCircleOutlined,
-	MacCommandOutlined,
 	ReadOutlined,
 	AppstoreOutlined
 } from '@ant-design/icons'
@@ -38,9 +38,9 @@ export const icons_map: { [key: string]: JSX.Element } = {
 	CoffeeOutlined: <CoffeeOutlined />,
 	RocketOutlined: <RocketOutlined />,
 	ScheduleOutlined: <ScheduleOutlined />,
+	RobotOutlined: <RobotOutlined />,
 	SendOutlined: <SendOutlined />,
 	DollarCircleOutlined: <DollarCircleOutlined />,
-	MacCommandOutlined: <MacCommandOutlined />,
 	ReadOutlined: <ReadOutlined />,
 	AppstoreOutlined: <AppstoreOutlined />
 }

@@ -62,7 +62,7 @@ const Index = (props: IProps) => {
 	useEffect(() => {
 		if (visible) {
 			setVisible(true)
-			setMaskBackground(maskVisible ? 'rgba(0,0,0,0.6)' : 'transparent')
+			setMaskBackground(maskVisible ? 'rgba(0,0,0,0.1)' : 'transparent')
 			setStyle(getPositionStyle()[position].show)
 		} else {
 			setMaskBackground('transparent')

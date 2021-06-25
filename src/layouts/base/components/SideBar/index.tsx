@@ -2,6 +2,8 @@ import { memo, useState } from 'react'
 import { AppstoreOutlined, RightOutlined, SearchOutlined } from '@ant-design/icons'
 import Modal from '@/components/Modal'
 import { bar_items_normal, bar_items_recent } from '@/data/mock'
+import { quicker_items } from '@/data/layout'
+import Icons from '@/icons/QuickerItems'
 import styles from './index.less'
 import type { ILinkItem } from '@/typings/app'
 
@@ -63,7 +65,29 @@ const Index = () => {
 							</div>
 						</div>
 					</div>
-					<div className='link_items h_100 border_box flex flex_column'></div>
+					<div className='quicker_wrap h_100 border_box flex flex_column'>
+						<div className='padding_wrap w_100 border_box'>
+							<div className='avatar_wrap w_100 border_box flex align_center transition_normal cursor_point'>
+								<img
+									className='avatar'
+									src={require('@/assets/test_images/avatar.jpg')}
+									alt='avatar'
+								/>
+								<span className='name line_clamp_1'>Wendao</span>
+							</div>
+						</div>
+						<div className='quecker_items w_100 border_box flex flex_column'>
+							{quicker_items.map((item) => (
+								<div
+									className='quecker_item w_100 border_box flex align_center transition_normal cursor_point'
+									key={item.id}
+								>
+									<Icons icon={item.icon}></Icons>
+									<span className='name'>{item.name}</span>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</Modal>
 		</div>
