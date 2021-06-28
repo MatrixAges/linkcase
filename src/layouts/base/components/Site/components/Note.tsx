@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import useDisableContextmenu from '@/hooks/use_disable_contextmenu'
 import type { ILinkItem } from '@/typings/app'
 
 interface IProps {
@@ -8,6 +9,7 @@ interface IProps {
 
 const Index = (props: IProps) => {
 	const { item, getBlockWidth } = props
+	const ref = useDisableContextmenu()
 
 	return (
 		<div
@@ -20,6 +22,7 @@ const Index = (props: IProps) => {
 			<div
 				className='link_item relative bg_white'
 				style={{ width: getBlockWidth(item.column) }}
+				ref={ref}
 			>
 				<div className='note_items w_100 h_100 border_box flex flex_column'>
 					{item.data?.map((it, idx) => (

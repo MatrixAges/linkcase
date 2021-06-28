@@ -4,6 +4,7 @@ import useLang from '@/hooks/use_lang'
 import Loader from './components/Loader'
 import Bg from './components/Bg'
 import Backdrop from './components/Backdrop'
+import RightMenu from './components/RightMenu'
 import Base from './base'
 import type { IModelApp, ConnectRC } from 'umi'
 
@@ -38,6 +39,7 @@ const Index: ConnectRC<IProps> = (props) => {
 					<Loader visible={!dom_ready}></Loader>
 					<Bg {...props_bg}></Bg>
 					<Backdrop></Backdrop>
+					<RightMenu></RightMenu>
 					<Base page_data={page_data} dispatch={dispatch}></Base>
 				</Fragment>
 			)}

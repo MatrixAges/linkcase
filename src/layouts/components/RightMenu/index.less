@@ -1,0 +1,54 @@
+._local {
+	position: fixed;
+	z-index: 1000;
+	display: none;
+	overflow: hidden;
+	border-radius: @radius_normal;
+	background-color: @color_bg_modal;
+	box-shadow: @shadow_normal;
+
+	backdrop-filter: blur(30px);
+
+	&.visible {
+		display: block;
+	}
+
+	:global {
+		.menu_items {
+			margin: 0;
+
+			.menu_item {
+				padding: 12px 24px;
+				line-height: 1;
+				cursor: pointer;
+
+				&:hover {
+					background-color: @color_bg;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				.icon {
+					margin-right: 9px;
+				}
+
+				.logo_wrap {
+					width: 21px;
+
+					.logo {
+						max-width: 13px;
+					}
+				}
+			}
+
+			.divide_line {
+				position: relative;
+				width: 100%;
+				height: 1px;
+				background-color: @color_border;
+			}
+		}
+	}
+}

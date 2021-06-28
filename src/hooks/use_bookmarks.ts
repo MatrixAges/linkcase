@@ -16,9 +16,11 @@ const Index = () => {
 		chrome.bookmarks.getTree((res) => {
 			if (res[0] && res[0].children) {
 				const _bookmarks = res[0].children
+
 				_bookmarks.map((item) => {
 					filter(extend(item, { key: item.id }))
 				})
+
 				setBookmarks(_bookmarks)
 			}
 		})

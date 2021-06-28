@@ -1,8 +1,10 @@
 import { memo } from 'react'
+import useDisableContextmenu from '@/hooks/use_disable_contextmenu'
 import type { IPropsItem } from '../index'
 
 const Index = (props: IPropsItem) => {
 	const { item, getBlockWidth } = props
+	const ref = useDisableContextmenu()
 
 	return (
 		<div
@@ -18,6 +20,7 @@ const Index = (props: IPropsItem) => {
 					backgroundImage: `url(${item.data?.[0].src})`,
 					width: getBlockWidth(item.column)
 				}}
+				ref={ref}
 			>
 				<div className='info_wrap absolute flex flex_column'>
 					<span className='desc'>{item.data?.[0].name}</span>
