@@ -24,6 +24,7 @@ export type TData = Partial<IWallpaper & INote>
 
 export interface ILinkItem {
 	id: number
+	block_id?: number
 	name?: string
 	type?: 'holder' | 'wallpaper' | 'note'
 	desc?: string

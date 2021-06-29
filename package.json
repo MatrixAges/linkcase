@@ -51,6 +51,7 @@
     "react-sortablejs": "^6.0.0",
     "recharts": "^2.0.9",
     "sortablejs": "^1.13.0",
+    "swiper": "^6.7.1",
     "umi": "^3.4.25"
   },
   "devDependencies": {
