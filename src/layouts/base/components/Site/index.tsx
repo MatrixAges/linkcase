@@ -37,12 +37,23 @@ const Index = (props: IPropsSites) => {
 		noSwipingClass: 'link_item'
 	}
 
-	const setPage = useCallback((page: number) => {
-		dispatch({
-			type: 'app/updateState',
-			payload: { page }
-		})
-	}, [])
+	const setPage = useCallback(
+		(page: number) => {
+			if (page === 0) {
+				page = data.length
+			}
+
+			if (page > data.length) {
+				page = 1
+			}
+
+			dispatch({
+				type: 'app/updateState',
+				payload: { page }
+			})
+		},
+		[data]
+	)
 
 	return (
 		<Swiper

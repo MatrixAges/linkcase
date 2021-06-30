@@ -63,6 +63,8 @@ const Index = (props: IProps) => {
 		getSwiperInstance: (e: Swiper) => (swiper.current = e)
 	}
 
+	console.log('page ' + page)
+
 	const props_indi: IPropsIndi = {
 		page,
 		count: data.length,
