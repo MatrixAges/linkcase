@@ -1,4 +1,5 @@
-import { memo, Fragment } from 'react'
+import { Fragment } from 'react'
+import { memo } from '@/utils/helpers/op'
 import {
 	FireOutlined,
 	ShareAltOutlined,

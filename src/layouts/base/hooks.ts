@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from 'react'
 import { useDebounceEffect, useReactive } from 'ahooks'
-import { chunk, uniq, find } from 'lodash-es'
+import { chunk, uniq, find, cloneDeep } from 'lodash-es'
 import type { IReactive } from './index'
 import type { ILinkItem } from '@/typings/app'
 
@@ -107,5 +107,16 @@ export const useChunkData = (
 		setChunkData(restore_data)
 	}, [data, row, col])
 
-	return chunk_data
+	const setList = useCallback(
+		(source_data: Array<Array<ILinkItem>>, list: Array<ILinkItem>, index: number) => {
+			const _data = cloneDeep(source_data)
+
+			_data[index] = list
+
+			setChunkData(_data)
+		},
+		[]
+	)
+
+	return { data: chunk_data, setData: setChunkData, setList }
 }

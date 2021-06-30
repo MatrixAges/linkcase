@@ -1,4 +1,5 @@
-import { memo, useCallback } from 'react'
+import { useCallback } from 'react'
+import { memo } from '@/utils/helpers/op'
 import { Link, useHistory } from 'umi'
 import { useUpdate } from 'ahooks'
 import Modal from '@/components/Modal'

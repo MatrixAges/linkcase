@@ -1,4 +1,5 @@
-import { memo, useEffect } from 'react'
+import { useEffect } from 'react'
+import { memo } from '@/utils/helpers/op'
 import { useReactive } from 'ahooks'
 import styles from './index.less'
 

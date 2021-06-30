@@ -1,0 +1,46 @@
+._local {
+	position: fixed;
+	top: 30px;
+	left: 0;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	width: 100%;
+
+	:global {
+		.search_wrap {
+			.input_search {
+				box-sizing: border-box;
+				padding: 0 30px;
+				width: 240px;
+				height: 30px;
+				border: 1px solid fade(white, 45%);
+				border-radius: 30px;
+				background-color: transparent;
+				color: white;
+				text-align: center;
+				line-height: 30px;
+				opacity: 0.45;
+
+				&:focus {
+					opacity: 0.8;
+
+					& + .icon_search {
+						opacity: 0.8;
+					}
+				}
+
+				&::placeholder {
+					color: fade(white, 45%);
+				}
+			}
+
+			.icon_search {
+				left: 12px;
+				margin-bottom: -2px;
+				color: fade(white, 45%);
+				opacity: 0.45;
+			}
+		}
+	}
+}

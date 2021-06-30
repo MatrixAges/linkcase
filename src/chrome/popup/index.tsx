@@ -1,4 +1,5 @@
-import { memo, useState } from 'react'
+import { useState } from 'react'
+import { memo } from '@/utils/helpers/op'
 import { connect, useIntl } from 'umi'
 import { Switch } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'

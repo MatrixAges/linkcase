@@ -1,4 +1,5 @@
-import { memo, useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { memo } from '@/utils/helpers/op'
 import styles from './index.less'
 
 interface IProps {

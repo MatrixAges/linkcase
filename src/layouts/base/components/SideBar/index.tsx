@@ -1,4 +1,5 @@
-import { memo, useState } from 'react'
+import { useState } from 'react'
+import { memo } from '@/utils/helpers/op'
 import { AppstoreOutlined, RightOutlined, SearchOutlined } from '@ant-design/icons'
 import Modal from '@/components/Modal'
 import { bar_items_normal, bar_items_recent } from '@/data/mock'

@@ -8,6 +8,7 @@ export interface IModelApp {
 	lang: TLang
 	dom_ready: boolean
 	visible_modal: boolean
+	page: number
 }
 
 const lang_browser =
@@ -20,7 +21,8 @@ export default {
 	state: {
 		lang: lang_browser,
 		dom_ready: false,
-		visible_modal: false
+		visible_modal: false,
+		page: 1
 	} as IModelApp,
 
 	subscriptions: {
