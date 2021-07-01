@@ -37,3 +37,17 @@ export interface ILinkItem {
 	x?: number
 	y?: number
 }
+
+export interface ITabItem {
+	id: number
+	name: string
+	to: string
+	icon: string
+}
+
+export interface IQuickerItem {
+	id: number
+	name: string
+	action: string
+	icon: string
+}

@@ -1,20 +1,36 @@
 import { useCallback } from 'react'
-import { Link, useHistory } from 'umi'
+import { useHistory } from 'umi'
 import { useUpdate } from 'ahooks'
-import Modal from '@/components/Modal'
 import { tab_items } from '@/data/options'
-import Icons from '@/icons/TabItems'
+import Modal from '@/components/Modal'
+import BtnMore from './components/BtnMore'
+import Tab from './components/Tab'
 import styles from './index.less'
 import type { IModelApp } from 'umi'
+import type { ITabItem } from '@/typings/app'
 import type { IPropsModal } from '../../index'
+
+export interface IPropsBtnMore {
+	onChangeVisible: (v: boolean) => void
+}
+
+export interface IPropsLink {
+	item: ITabItem
+	pathname: string
+	update: () => void
+}
+
+export interface IPropsTab {
+	items: Array<ITabItem>
+	pathname: string
+	update: () => void
+}
 
 const Index = (props: IPropsModal) => {
 	const { visible, dispatch } = props
 	const history = useHistory()
 	const update = useUpdate()
-	const {
-		location: { pathname }
-	} = history
+	const { location } = history
 
 	const onChangeVisible = useCallback((v: boolean) => {
 		dispatch({
@@ -35,16 +51,19 @@ const Index = (props: IPropsModal) => {
 		}
 	}, [])
 
+	const props_btn_more: IPropsBtnMore = {
+		onChangeVisible
+	}
+
+	const props_tab: IPropsTab = {
+		items: tab_items,
+		pathname: location.pathname,
+		update
+	}
+
 	return (
 		<div className={styles._local}>
-			<button
-				className='btn_more_wrap cursor_point border_box flex justify_center align_center transition_normal clickable'
-				onClick={() => onChangeVisible(true)}
-			>
-				<div className='btn_more w_100 h_100 border_box flex justify_center align_center transition_normal'>
-					<img className='logo' src='/logo/linkcase@128_white.png' alt='logo' />
-				</div>
-			</button>
+			<BtnMore {...props_btn_more}></BtnMore>
 			<Modal
 				visible={visible}
 				onClose={() => onChangeVisible(false)}
@@ -52,47 +71,7 @@ const Index = (props: IPropsModal) => {
 				maskVisible
 			>
 				<div className='modal_wrap w_100 border_box'>
-					<div className='tab_items border_box flex flex_column justify_between'>
-						<div className='top w_100 flex flex_column'>
-							{tab_items.map(
-								(item) =>
-									item.name !== 'Setting' && (
-										<Link
-											className={`
-                                                                        tab_item flex flex_column justify_center align_center
-                                                                        ${
-													pathname ===
-													'/' + item.to
-														? 'active'
-														: ''
-												}
-                                                                  `}
-											to={`/${item.to}`}
-											key={item.id}
-											onClick={update}
-										>
-											<Icons icon={item.icon}></Icons>
-										</Link>
-									)
-							)}
-						</div>
-						<div className='bottom w_100 flex flex_column'>
-							<Link
-								className={`
-                                                      tab_item flex flex_column justify_center align_center
-                                                      ${
-										pathname === '/setting.html'
-											? 'active'
-											: ''
-									}
-                                                `}
-								to='/setting.html'
-								onClick={update}
-							>
-								<Icons icon='SettingOutlined'></Icons>
-							</Link>
-						</div>
-					</div>
+					<Tab {...props_tab}></Tab>
 				</div>
 			</Modal>
 		</div>
