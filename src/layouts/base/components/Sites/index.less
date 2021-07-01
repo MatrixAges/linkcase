@@ -1,0 +1,48 @@
+._local {
+	display: flex;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	box-sizing: border-box;
+	width: 100vw;
+	height: 100%;
+
+	@size: 72px;
+
+	:global {
+		.swiper_item {
+			padding: 0 @padding_content;
+		}
+
+		.link_items {
+			display: grid;
+			height: 100%;
+
+			@link_row: 3;
+			@link_col: 7;
+			grid-template-columns: repeat(@link_col, 100% / @link_col);
+			grid-template-rows: repeat(@link_row, 100% / @link_row);
+			place-items: center;
+
+			@media screen and (max-width: 1024px) {
+				@link_row: 5;
+				@link_col: 6;
+				grid-template-columns: repeat(@link_col, 100% / @link_col);
+				grid-template-rows: repeat(@link_row, 100% / @link_row);
+			}
+
+			@media screen and (max-width: 1024px) and (min-height: 768px) {
+				@link_row: 4;
+				@link_col: 6;
+				grid-template-columns: repeat(@link_col, 100% / @link_col);
+				grid-template-rows: repeat(@link_row, 100% / @link_row);
+			}
+
+			@media screen and (max-width: 768px) and (min-height: 1024px) {
+				@link_row: 5;
+				@link_col: 5;
+				grid-template-columns: repeat(@link_col, 100% / @link_col);
+				grid-template-rows: repeat(@link_row, 100% / @link_row);
+			}
+		}
+	}
+}

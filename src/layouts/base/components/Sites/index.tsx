@@ -69,9 +69,10 @@ const Index = (props: IPropsSites) => {
 						setList={(list) => setList(data, list, index)}
 						animation={300}
 						delay={240}
-						forceFallback
 						group='shared'
 						handle='.link_item'
+						forceFallback
+						fallbackOnBody
 					>
 						{items.map((item) => (
 							<Switch key={item.id}>
