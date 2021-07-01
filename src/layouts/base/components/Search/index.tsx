@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { SearchOutlined } from '@ant-design/icons'
 import styles from './index.less'
 
@@ -17,4 +16,4 @@ const Index = () => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { connect, useHistory, IRouteComponentProps } from 'umi'
 import useLang from '@/hooks/use_lang'
 import Loader from './components/Loader'
@@ -57,4 +56,4 @@ const getInitialProps = ({ app }: IPageData) => ({
 	page_data: app
 })
 
-export default memo(connect(getInitialProps)(Index))
+export default window.$app.memo(connect(getInitialProps)(Index))

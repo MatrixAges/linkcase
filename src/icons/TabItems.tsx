@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import { memo } from '@/utils/helpers/op'
 import {
 	AppstoreOutlined,
 	LinkOutlined,
@@ -26,4 +25,4 @@ const Index = ({ icon }: { icon: string }) => {
 	return <Fragment></Fragment>
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

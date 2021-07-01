@@ -19,11 +19,16 @@
 				background-color: transparent;
 				color: white;
 				text-align: center;
+				font-size: 14px;
 				line-height: 30px;
 				opacity: 0.45;
 
 				&:focus {
+					width: 360px;
+					background-color: fade(black, 24%);
 					opacity: 1;
+
+					backdrop-filter: blur(60px);
 
 					& + .icon_search {
 						opacity: 1;
@@ -32,12 +37,12 @@
 
 				&::placeholder {
 					color: fade(white, 45%);
+					font-size: 13px;
 				}
 			}
 
 			.icon_search {
 				left: 12px;
-				margin-bottom: -2px;
 				color: fade(white, 45%);
 				opacity: 0.45;
 			}

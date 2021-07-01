@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { connect, useIntl } from 'umi'
 import { Switch } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
@@ -117,4 +116,4 @@ const getInitialProps = ({ app }: IPageData) => ({
 	page_data: app
 })
 
-export default memo(connect(getInitialProps)(Index))
+export default window.$app.memo(connect(getInitialProps)(Index))

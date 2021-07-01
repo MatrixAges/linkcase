@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import useDisableContextmenu from '@/hooks/use_disable_contextmenu'
 import type { ILinkItem } from '@/typings/app'
 
@@ -43,4 +42,4 @@ const Index = (props: IProps) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

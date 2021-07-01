@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { useIntl, Helmet } from 'umi'
 import { useReactive, useCreation, useSize } from 'ahooks'
 import { useReactiveSize, useGetBlockWidth, useChunkData } from './hooks'
@@ -63,8 +62,6 @@ const Index = (props: IProps) => {
 		getSwiperInstance: (e: Swiper) => (swiper.current = e)
 	}
 
-	console.log('page ' + page)
-
 	const props_indi: IPropsIndi = {
 		page,
 		count: data.length,
@@ -94,4 +91,4 @@ const Index = (props: IProps) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

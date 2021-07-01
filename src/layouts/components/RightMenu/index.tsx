@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { useCreation, useSize, useClickAway } from 'ahooks'
 import {
 	SearchOutlined,
@@ -58,4 +57,4 @@ const Index = () => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

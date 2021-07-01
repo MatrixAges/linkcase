@@ -9,6 +9,7 @@ export interface IModelApp {
 	dom_ready: boolean
 	visible_modal: boolean
 	page: number
+	search_text: string
 }
 
 const lang_browser =
@@ -22,7 +23,8 @@ export default {
 		lang: lang_browser,
 		dom_ready: false,
 		visible_modal: false,
-		page: 1
+		page: 1,
+		search_text: ''
 	} as IModelApp,
 
 	subscriptions: {

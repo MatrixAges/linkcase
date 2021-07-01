@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { Switch, Case, Default } from 'react-if'
 import { ReactSortable } from 'react-sortablejs'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -97,4 +96,4 @@ const Index = (props: IPropsSites) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

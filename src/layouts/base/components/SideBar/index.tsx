@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { AppstoreOutlined, RightOutlined, SearchOutlined } from '@ant-design/icons'
 import Modal from '@/components/Modal'
 import { bar_items_normal, bar_items_recent } from '@/data/mock'
@@ -8,7 +7,7 @@ import Icons from '@/icons/QuickerItems'
 import styles from './index.less'
 import type { ILinkItem } from '@/typings/app'
 
-const Item = memo(({ image, name }: ILinkItem) => (
+const Item = window.$app.memo(({ image, name }: ILinkItem) => (
 	<button className='bar_item_normal bar_item flex align_center cursor_point clickable'>
 		<img className='logo' src={image} alt='logo' />
 		<span className='name white line_clamp_1'>{name}</span>
@@ -95,4 +94,4 @@ const Index = () => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

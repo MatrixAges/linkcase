@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import styles from './index.less'
 import bg from '@/assets/test_images/lake.png'
 import type { IPropsBg } from '../../index'
@@ -37,4 +36,4 @@ const Index = (props: IPropsBg) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

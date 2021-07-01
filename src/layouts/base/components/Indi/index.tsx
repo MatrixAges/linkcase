@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import styles from './index.less'
 import type { IPropsIndi } from '../../index'
 
@@ -29,4 +28,4 @@ const Index = (props: IPropsIndi) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

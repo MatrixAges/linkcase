@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import useDisableContextmenu from '@/hooks/use_disable_contextmenu'
 import type { IPropsItem } from '../index'
 
@@ -32,4 +31,4 @@ const Index = (props: IPropsItem) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

@@ -12,3 +12,11 @@ declare module 'dva-model-extend' {
 
 	export default modelExtend
 }
+
+interface Window {
+	$app: {
+		memo: (
+			el: (props: any) => JSX.Element | null
+		) => React.MemoExoticComponent<(props: any) => JSX.Element | null>
+	}
+}

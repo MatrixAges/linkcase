@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { useReactive } from 'ahooks'
 import styles from './index.less'
 
@@ -47,4 +46,4 @@ const Index = ({ visible }: IProps) => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

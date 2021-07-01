@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import styles from './index.less'
 
 const Index = () => {
@@ -15,4 +14,4 @@ const Index = () => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)

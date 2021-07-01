@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import { memo } from '@/utils/helpers/op'
 import { connect } from 'umi'
 import styles from './index.less'
 import type { IModelApp } from 'umi'
@@ -29,4 +28,4 @@ const getInitialProps = ({ app }: IPageData) => ({
 	page_data: app
 })
 
-export default memo(connect(getInitialProps)(Index))
+export default window.$app.memo(connect(getInitialProps)(Index))

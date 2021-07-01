@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { SearchOutlined } from '@ant-design/icons'
 import { site_category } from '@/data/options'
 import { site_items } from '@/data/mock'
@@ -67,4 +66,4 @@ const Index = () => {
 	)
 }
 
-export default memo(Index)
+export default window.$app.memo(Index)
