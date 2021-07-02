@@ -24,7 +24,7 @@ export interface IReactive {
 }
 
 export interface IPropsSites {
-	data: Array<Array<ISite>>
+	data: Array<Array<ISite | undefined>>
 	dispatch: Dispatch
 	getBlockWidth: (column: number | undefined) => number | undefined
 	setList: (source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => void
@@ -51,8 +51,9 @@ const Index = (props: IProps) => {
 	const { visible_modal, page, sites, history } = page_data
 	const intl = useIntl()
 	const swiper = useRef<Swiper>()
-	const { data, setList } = useData(sites)
-	const getBlockWidth = useGetBlockWidth(useReactiveSize())
+	const reactive = useReactiveSize()
+	const { data, setList } = useData(sites, reactive)
+	const getBlockWidth = useGetBlockWidth(reactive)
 
 	const props_sites: IPropsSites = {
 		data,

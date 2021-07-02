@@ -1,8 +1,9 @@
 import { useCallback, useState, useEffect } from 'react'
 import { useDebounceEffect, useCreation, useSize, useReactive } from 'ahooks'
 import { chunk, uniq, find, cloneDeep } from 'lodash-es'
-import type { IReactive } from './index'
+import { blockToItems } from './helper'
 import type { ISite } from '@/typings/app'
+import type { IReactive } from './index'
 
 export const useReactiveSize = () => {
 	const body = useCreation(() => document.querySelector('body'), [])
@@ -59,27 +60,6 @@ export const useGetBlockWidth = (reactive: IReactive) => {
 		},
 		[reactive.size_item, reactive.interval]
 	)
-}
-
-export const useData = (data: Array<Array<ISite>>) => {
-	const [state, setState] = useState<Array<Array<ISite>>>([[]])
-
-	useEffect(() => {
-		setState(data)
-	}, [data])
-
-	const setList = useCallback(
-		(source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => {
-			const _data = cloneDeep(source_data)
-
-			_data[index] = list
-
-			setState(_data)
-		},
-		[]
-	)
-
-	return { data: state, setData: setState, setList }
 }
 
 export const useChunkData = (
@@ -144,13 +124,13 @@ export const useChunkData = (
 	}
 }
 
-export const useOverflowHandler = (
-	data: Array<Array<ISite | undefined>>,
-	setData: React.Dispatch<React.SetStateAction<Array<Array<ISite>>>>,
-	row: number | undefined,
-	col: number | undefined
-) => {
-	const [handled_data, setHandledData] = useState<Array<Array<ISite | undefined>>>([])
+export const useData = (data: Array<Array<ISite>>, reactive: IReactive) => {
+	const [state, setState] = useState<Array<Array<ISite | undefined>>>([[]])
+	const count = reactive.row * reactive.col
+
+	useEffect(() => {
+		setState(data)
+	}, [data])
 
 	// 对拖拽之后数组项溢出的情况
 
@@ -162,26 +142,38 @@ export const useOverflowHandler = (
 
 	// 溢出算法 case_2
 
-	// step_0 规定二维数组中二级数组元素的最大数量，
-	// step_1 对整个数组进行进行遍历，
+	// step_0 规定二维数组中二级数组元素的最大数量
+	// step_1 对整个数组进行进行遍历
 	// step_2 对二级数组中，未满最大数量的数组填充空值，直到达到最大数量
 	// step_3 执行切片算法
 	// step_4 过滤空值，还原数组
 
 	useEffect(() => {
-		if (!row) return
-		if (!col) return
+		if (!count) return
 
-		const count = row * col
+		let overflow = false
 
-		data.map((item) => {
-			if (item.length < count) {
-				Array(count)
-					.fill(undefined)
-					.map((i, idx) => {
-						if (!item[idx]) item[idx] = i
-					})
-			}
-		})
-	}, [data, row, col])
+		for (const item of state) {
+			if (item.length > count) overflow = true
+		}
+
+		if (!overflow) return
+
+		blockToItems(state, count)
+	}, [state, count])
+
+	const setList = useCallback(
+		(source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => {
+			const _data = cloneDeep(source_data)
+
+			_data[index] = list
+
+			setState(_data)
+		},
+		[]
+	)
+
+	console.log(state)
+
+	return { data: state, setData: setState, setList }
 }

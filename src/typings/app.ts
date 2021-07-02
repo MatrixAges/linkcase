@@ -14,7 +14,7 @@ export interface INote {
 export type TData = Partial<IWallpaper & INote>
 
 export interface ISite {
-	id: number
+	id?: number
 	block_id?: number
 	name?: string
 	type?: 'holder' | 'wallpaper' | 'note'
