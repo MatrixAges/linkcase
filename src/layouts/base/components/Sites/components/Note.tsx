@@ -1,8 +1,8 @@
 import useDisableContextmenu from '@/hooks/use_disable_contextmenu'
-import type { ILinkItem } from '@/typings/app'
+import type { ISite } from '@/typings/app'
 
 interface IProps {
-	item: ILinkItem
+	item: ISite
 	getBlockWidth: (column: number | undefined) => number | undefined
 }
 

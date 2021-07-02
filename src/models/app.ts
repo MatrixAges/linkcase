@@ -1,8 +1,9 @@
 import Sync from '@/store/sync'
 import { e_lang, e_lang_umi } from '@/enums'
 import { onChangeLanguage } from '@/utils/helpers/languages'
+import Service from '@/service'
 import type { Model } from '@/typings/dva'
-import type { TLang } from '@/typings/app'
+import type { TLang, ISite } from '@/typings/app'
 
 export interface IModelApp {
 	lang: TLang
@@ -10,6 +11,11 @@ export interface IModelApp {
 	visible_modal: boolean
 	page: number
 	search_text: string
+	sites: Array<Array<ISite>>
+	history: {
+		common: Array<ISite>
+		recent: Array<ISite>
+	}
 }
 
 const lang_browser =
@@ -24,11 +30,16 @@ export default {
 		dom_ready: false,
 		visible_modal: false,
 		page: 1,
-		search_text: ''
+		search_text: '',
+		sites: [[]],
+		history: { common: [], recent: [] }
 	} as IModelApp,
 
 	subscriptions: {
 		async setup({ dispatch }) {
+			dispatch({ type: 'getSites' })
+			dispatch({ type: 'getHistory' })
+
 			// const { lang } = await Sync.get('lang')
 			// if (lang) {
 			// 	dispatch({
@@ -45,7 +56,28 @@ export default {
 		}
 	},
 
-	effects: {},
+	effects: {
+		*getSites({}, { call, put }) {
+			const {
+				result: { data }
+			} = yield call(Service.getSites)
+
+			yield put({
+				type: 'updateState',
+				payload: { sites: data } as IModelApp
+			})
+		},
+		*getHistory({}, { call, put }) {
+			const {
+				result: { data }
+			} = yield call(Service.getHistory)
+
+			yield put({
+				type: 'updateState',
+				payload: { history: data } as IModelApp
+			})
+		}
+	},
 
 	reducers: {
 		updateState(state, { payload }): IModelApp {

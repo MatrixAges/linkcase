@@ -1,4 +1,4 @@
-import { resolve, join } from 'path'
+import { resolve } from 'path'
 import { defineConfig } from 'umi'
 import Extension, { is_dev } from './config/extension'
 import Theme from './src/theme'
@@ -15,13 +15,13 @@ export default defineConfig({
 	antd: false,
 	esbuild: {},
 	cssnano: {},
+	webpack5: {},
 	fastRefresh: {},
 	inlineLimit: 10,
 	ignoreMomentLocale: true,
 	favicon: '/logo/favicon.ico',
 	cssModulesTypescriptLoader: {},
 	dva: { immer: true, hmr: true },
-	webpack5: { lazyCompilation: {} },
 	alias: { R: resolve(__dirname, './') },
 	mylocale: { antd: false, default: 'en-US' },
 	nodeModulesTransform: { type: 'none', exclude: [] },

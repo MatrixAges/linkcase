@@ -2,12 +2,12 @@ import Item from './Item'
 import type { IPropsBarItems } from '../index'
 
 const Index = (props: IPropsBarItems) => {
-	const { normal, recent } = props
+	const { common, recent } = props
 
 	return (
 		<div className='scroll_wrap w_100 border_box flex flex_column'>
 			<div className='bar_items_normal_wrap items_wrap w_100 border_box flex flex_column'>
-				{normal.map((item) => (
+				{common.map((item) => (
 					<Item {...item} key={item.id}></Item>
 				))}
 			</div>

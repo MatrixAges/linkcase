@@ -1,12 +1,12 @@
 import type { IPropsSite } from '../index'
 
 const Index = (props: IPropsSite) => {
-	const { site_items } = props
+	const { sites } = props
 
 	return (
 		<div className='site_items_wrap border_box'>
 			<div className='site_items border_box flex flex_wrap'>
-				{site_items.map((item, index) => (
+				{sites.map((item, index) => (
 					<div className='site_item_wrap border_box' key={index}>
 						<div className='site_item w_100 border_box flex align_center transition_normal'>
 							<div className='left border_box flex align_center'>

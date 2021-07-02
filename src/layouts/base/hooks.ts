@@ -1,15 +1,13 @@
 import { useCallback, useState, useEffect } from 'react'
-import { useDebounceEffect, useReactive } from 'ahooks'
+import { useDebounceEffect, useCreation, useSize, useReactive } from 'ahooks'
 import { chunk, uniq, find, cloneDeep } from 'lodash-es'
 import type { IReactive } from './index'
-import type { ILinkItem } from '@/typings/app'
+import type { ISite } from '@/typings/app'
 
-export const useReactiveSize = (
-	width: number | undefined,
-	height: number | undefined,
-	reactive: IReactive
-) => {
-	const r = useReactive({ row: 0, col: 0 })
+export const useReactiveSize = () => {
+	const body = useCreation(() => document.querySelector('body'), [])
+	const { width, height } = useSize(body)
+	const r = useReactive<IReactive>({ size_item: 160, interval: 10, row: 0, col: 0 })
 
 	useDebounceEffect(
 		() => {
@@ -42,14 +40,14 @@ export const useReactiveSize = (
 			const size_column = (width - 0.12 * 2 * width) / r.col - 0.015
 			const size_item = size_row - padding * 2 - 25
 
-			reactive.size_item = size_item
-			reactive.interval = (size_column - size_item) / 2
+			r.size_item = size_item
+			r.interval = (size_column - size_item) / 2
 		},
 		[width, height],
 		{ leading: true, wait: 100 }
 	)
 
-	return { row: r.row, col: r.col }
+	return r
 }
 
 export const useGetBlockWidth = (reactive: IReactive) => {
@@ -63,20 +61,41 @@ export const useGetBlockWidth = (reactive: IReactive) => {
 	)
 }
 
+export const useData = (data: Array<Array<ISite>>) => {
+	const [state, setState] = useState<Array<Array<ISite>>>([[]])
+
+	useEffect(() => {
+		setState(data)
+	}, [data])
+
+	const setList = useCallback(
+		(source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => {
+			const _data = cloneDeep(source_data)
+
+			_data[index] = list
+
+			setState(_data)
+		},
+		[]
+	)
+
+	return { data: state, setData: setState, setList }
+}
+
 export const useChunkData = (
-	data: Array<ILinkItem>,
+	data: Array<ISite>,
 	row: number | undefined,
 	col: number | undefined
 ) => {
-	const [chunk_data, setChunkData] = useState<Array<Array<ILinkItem>>>([])
+	const [chunk_data, setChunkData] = useState<Array<Array<ISite>>>([])
 
 	useEffect(() => {
 		if (!row) return
 		if (!col) return
 
-		const block_data: Array<ILinkItem> = []
-		const handled_data: Array<ILinkItem> = []
-		const restore_data: Array<Array<ILinkItem>> = []
+		const block_data: Array<ISite> = []
+		const handled_data: Array<ISite> = []
+		const restore_data: Array<Array<ISite>> = []
 
 		// transform block as site item
 		data.map((item) => {
@@ -99,7 +118,7 @@ export const useChunkData = (
 		restore_data.map((item) => {
 			item.map((it, idx, arr) => {
 				if (it.block_id !== undefined) {
-					arr[idx] = find(block_data, (x) => x.id === it.block_id) as ILinkItem
+					arr[idx] = find(block_data, (x) => x.id === it.block_id) as ISite
 				}
 			})
 		})
@@ -108,7 +127,7 @@ export const useChunkData = (
 	}, [data, row, col])
 
 	const setList = useCallback(
-		(source_data: Array<Array<ILinkItem>>, list: Array<ILinkItem>, index: number) => {
+		(source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => {
 			const _data = cloneDeep(source_data)
 
 			_data[index] = list
@@ -126,10 +145,12 @@ export const useChunkData = (
 }
 
 export const useOverflowHandler = (
-	data: Array<Array<ILinkItem>>,
-	setData: React.Dispatch<React.SetStateAction<ILinkItem[][]>>
+	data: Array<Array<ISite | undefined>>,
+	setData: React.Dispatch<React.SetStateAction<Array<Array<ISite>>>>,
+	row: number | undefined,
+	col: number | undefined
 ) => {
-	const [handled_data, setHandledData] = useState<Array<Array<ILinkItem>>>([])
+	const [handled_data, setHandledData] = useState<Array<Array<ISite | undefined>>>([])
 
 	// 对拖拽之后数组项溢出的情况
 
@@ -147,5 +168,20 @@ export const useOverflowHandler = (
 	// step_3 执行切片算法
 	// step_4 过滤空值，还原数组
 
-	useEffect(() => {}, [data])
+	useEffect(() => {
+		if (!row) return
+		if (!col) return
+
+		const count = row * col
+
+		data.map((item) => {
+			if (item.length < count) {
+				Array(count)
+					.fill(undefined)
+					.map((i, idx) => {
+						if (!item[idx]) item[idx] = i
+					})
+			}
+		})
+	}, [data, row, col])
 }

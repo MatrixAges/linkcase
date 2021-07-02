@@ -1,17 +1,15 @@
 import { useRef } from 'react'
 import { useIntl, Helmet } from 'umi'
-import { useReactive, useCreation, useSize } from 'ahooks'
-import { useReactiveSize, useGetBlockWidth, useChunkData } from './hooks'
+import { useReactiveSize, useGetBlockWidth, useData } from './hooks'
 import Search from './components/Search'
 import Sites from './components/Sites'
 import Indi from './components/Indi'
 import SideBar from './components/SideBar'
 import Modal from './components/Modal'
-import { link_items } from '@/data/mock'
 import styles from './index.less'
 import type { Swiper } from 'swiper'
 import type { IModelApp, Dispatch } from 'umi'
-import type { ILinkItem } from '@/typings/app'
+import type { ISite } from '@/typings/app'
 
 interface IProps {
 	page_data: IModelApp
@@ -21,13 +19,15 @@ interface IProps {
 export interface IReactive {
 	size_item: number
 	interval: number
+	row: number
+	col: number
 }
 
 export interface IPropsSites {
-	data: Array<Array<ILinkItem>>
+	data: Array<Array<ISite>>
 	dispatch: Dispatch
 	getBlockWidth: (column: number | undefined) => number | undefined
-	setList: (source_data: Array<Array<ILinkItem>>, list: Array<ILinkItem>, index: number) => void
+	setList: (source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => void
 	getSwiperInstance: (e: Swiper) => void
 }
 
@@ -37,6 +37,10 @@ export interface IPropsIndi {
 	onChangeSwiper: (index: number) => void
 }
 
+export interface IPropsSiderbar {
+	history: IModelApp['history']
+}
+
 export interface IPropsModal {
 	visible: IModelApp['visible_modal']
 	dispatch: Dispatch
@@ -44,15 +48,11 @@ export interface IPropsModal {
 
 const Index = (props: IProps) => {
 	const { page_data, dispatch } = props
-	const { visible_modal, page } = page_data
+	const { visible_modal, page, sites, history } = page_data
 	const intl = useIntl()
 	const swiper = useRef<Swiper>()
-	const reactive = useReactive({ size_item: 160, interval: 10 })
-	const body = useCreation(() => document.querySelector('body'), [])
-	const { width, height } = useSize(body)
-	const { row, col } = useReactiveSize(width, height, reactive)
-	const { data, setList } = useChunkData(link_items, row, col)
-	const getBlockWidth = useGetBlockWidth(reactive)
+	const { data, setList } = useData(sites)
+	const getBlockWidth = useGetBlockWidth(useReactiveSize())
 
 	const props_sites: IPropsSites = {
 		data,
@@ -70,6 +70,10 @@ const Index = (props: IProps) => {
 		}
 	}
 
+	const props_sider_bar: IPropsSiderbar = {
+		history
+	}
+
 	const props_modal: IPropsModal = {
 		visible: visible_modal,
 		dispatch
@@ -84,7 +88,7 @@ const Index = (props: IProps) => {
 				<Search></Search>
 				<Sites {...props_sites}></Sites>
 				<Indi {...props_indi}></Indi>
-				<SideBar></SideBar>
+				<SideBar {...props_sider_bar}></SideBar>
 				<Modal {...props_modal}></Modal>
 			</div>
 		</div>

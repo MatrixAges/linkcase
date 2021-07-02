@@ -1,14 +1,5 @@
 export type TLang = 'en' | 'cn'
 
-export interface IBarItem {
-	id: number
-	name: string
-	url: string
-	active: boolean
-	opened: boolean
-	image: any
-}
-
 export interface IWallpaper {
 	name: string
 	date: string
@@ -22,7 +13,7 @@ export interface INote {
 
 export type TData = Partial<IWallpaper & INote>
 
-export interface ILinkItem {
+export interface ISite {
 	id: number
 	block_id?: number
 	name?: string

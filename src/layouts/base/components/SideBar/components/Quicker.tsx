@@ -8,11 +8,7 @@ const Index = (props: IPropsQuicker) => {
 		<div className='quicker_wrap h_100 border_box flex flex_column'>
 			<div className='padding_wrap w_100 border_box'>
 				<div className='avatar_wrap w_100 border_box flex align_center transition_normal cursor_point'>
-					<img
-						className='avatar'
-						src={require('@/assets/test_images/avatar.jpg')}
-						alt='avatar'
-					/>
+					<img className='avatar' src='/test_images/avatar.jpg' alt='avatar' />
 					<span className='name line_clamp_1'>Wendao</span>
 				</div>
 			</div>

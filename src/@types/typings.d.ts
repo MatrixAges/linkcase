@@ -20,3 +20,9 @@ interface Window {
 		) => React.MemoExoticComponent<(props: any) => JSX.Element | null>
 	}
 }
+
+declare module 'mockjs-esm' {
+	import TMock from 'mockjs'
+
+	export default TMock
+}

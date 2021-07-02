@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { bar_items_normal, bar_items_recent } from '@/data/mock'
 import { quicker_items } from '@/data/layout'
 import Modal from '@/components/Modal'
 import BtnApps from './components/BtnApps'
@@ -7,22 +6,26 @@ import BarItems from './components/BarItems'
 import Options from './components/Options'
 import Quicker from './components/Quicker'
 import styles from './index.less'
-import type { ILinkItem, IQuickerItem } from '@/typings/app'
+import type { ISite, IQuickerItem } from '@/typings/app'
+import type { IPropsSiderbar } from '../../index'
 
 export interface IPropsBtnApps {
 	setStateVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface IPropsBarItems {
-	normal: Array<ILinkItem>
-	recent: Array<ILinkItem>
+	common: Array<ISite>
+	recent: Array<ISite>
 }
 
 export interface IPropsQuicker {
 	items: Array<IQuickerItem>
 }
 
-const Index = () => {
+const Index = (props: IPropsSiderbar) => {
+	const {
+		history: { common, recent }
+	} = props
 	const [s_visible, setStateVisible] = useState(false)
 
 	const props_btn_apps: IPropsBtnApps = {
@@ -30,8 +33,8 @@ const Index = () => {
 	}
 
 	const props_bar_items: IPropsBarItems = {
-		normal: bar_items_normal,
-		recent: bar_items_recent
+		common,
+		recent
 	}
 
 	const props_quicker: IPropsQuicker = {

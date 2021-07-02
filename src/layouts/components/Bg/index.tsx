@@ -1,5 +1,4 @@
 import styles from './index.less'
-import bg from '@/assets/test_images/lake.png'
 import type { IPropsBg } from '../../index'
 
 const Index = (props: IPropsBg) => {
@@ -31,7 +30,7 @@ const Index = (props: IPropsBg) => {
                   `}
 			style={style}
 		>
-			<img className='none' src={bg} alt='' onLoad={onLoadImage} />
+			<img className='none' src='/test_images/lake.png' alt='' onLoad={onLoadImage} />
 		</div>
 	)
 }

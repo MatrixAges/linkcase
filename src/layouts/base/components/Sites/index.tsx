@@ -9,7 +9,7 @@ import Site from './components/Site'
 import styles from './index.less'
 import 'swiper/swiper.less'
 import type { SwiperOptions } from 'swiper'
-import type { ILinkItem } from '@/typings/app'
+import type { ISite } from '@/typings/app'
 import type { IPropsSites } from '../../index'
 
 export interface IPropsSite {
@@ -17,7 +17,7 @@ export interface IPropsSite {
 }
 
 export interface IPropsItem extends IPropsSite {
-	item: ILinkItem
+	item: ISite
 }
 
 SwiperCore.use([Mousewheel])
@@ -30,7 +30,7 @@ const Index = (props: IPropsSites) => {
 	}
 
 	const props_swiper: SwiperOptions = {
-		initialSlide: 1,
+		initialSlide: 0,
 		mousewheel: true,
 		loop: true,
 		noSwipingClass: 'link_item'

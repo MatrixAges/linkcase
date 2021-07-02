@@ -1,17 +1,24 @@
-import { site_items } from '@/data/mock'
+import { connect } from 'umi'
 import Page from '@/components/Page'
 import Category from './components/Category'
 import Site from './components/Site'
 import styles from './index.less'
-import type { ILinkItem } from '@/typings/app'
+import type { IModelSite, ConnectRC } from 'umi'
 
-export interface IPropsSite {
-	site_items: Array<ILinkItem>
+interface IProps {
+	page_data: IModelSite
 }
 
-const Index = () => {
-	const props_site = {
-		site_items
+export interface IPropsSite {
+	sites: IModelSite['sites']
+}
+
+const Index: ConnectRC<IProps> = (props) => {
+	const { page_data } = props
+	const { sites } = page_data
+
+	const props_site: IPropsSite = {
+		sites
 	}
 
 	return (
@@ -22,4 +29,12 @@ const Index = () => {
 	)
 }
 
-export default window.$app.memo(Index)
+interface IPageData {
+	site: IModelSite
+}
+
+const getInitialProps = ({ site }: IPageData) => ({
+	page_data: site
+})
+
+export default window.$app.memo(connect(getInitialProps)(Index))
