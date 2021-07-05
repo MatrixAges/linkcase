@@ -132,6 +132,6 @@ export const useDragPaging = (
 			}
 		},
 		[dragging, clientX],
-		{ leading: false, wait: 150 }
+		{ leading: false, wait: 300 }
 	)
 }

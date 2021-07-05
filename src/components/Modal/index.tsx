@@ -9,6 +9,7 @@ interface IProps {
 	zIndex?: number
 	maskVisible?: boolean
 	maskClosable?: boolean
+	noBlur?: boolean
 	onClose?: () => void
 }
 
@@ -25,6 +26,7 @@ const Index = (props: IProps) => {
 		zIndex = 10,
 		maskVisible,
 		maskClosable,
+		noBlur = true,
 		onClose
 	} = props
 
@@ -62,7 +64,7 @@ const Index = (props: IProps) => {
 	useEffect(() => {
 		if (visible) {
 			setVisible(true)
-			setMaskBackground(maskVisible ? 'rgba(0,0,0,0.1)' : 'transparent')
+			setMaskBackground(maskVisible ? 'rgba(0,0,0,0.6)' : 'transparent')
 			setStyle(getPositionStyle()[position].show)
 		} else {
 			setMaskBackground('transparent')
@@ -78,7 +80,7 @@ const Index = (props: IProps) => {
 
 	return (
 		<div
-			className={styles._local + ' ' + className}
+			className={styles._local}
 			style={{ zIndex, visibility: s_visible ? 'visible' : 'hidden' }}
 		>
 			<div className='dialog_wrap'>
@@ -88,7 +90,10 @@ const Index = (props: IProps) => {
 					onClickCapture={maskClosable ? close : undefined}
 					onTouchMoveCapture={maskClosable ? close : undefined}
 				></div>
-				<div className={'dialog ' + position} style={s_style}>
+				<div
+					className={'dialog ' + position + ' ' + className}
+					style={{ ...s_style, backdropFilter: noBlur ? 'none' : 'blur(30px)' }}
+				>
 					{children}
 				</div>
 			</div>

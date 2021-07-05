@@ -9,6 +9,7 @@ export interface IModelApp {
 	lang: TLang
 	dom_ready: boolean
 	visible_modal: boolean
+	visible_search: boolean
 	dragging: boolean
 	page: number
 	search_text: string
@@ -30,6 +31,7 @@ export default {
 		lang: lang_browser,
 		dom_ready: false,
 		visible_modal: false,
+		visible_search: false,
 		dragging: false,
 		page: 1,
 		search_text: '',

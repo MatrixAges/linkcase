@@ -24,7 +24,8 @@ export interface IPropsQuicker {
 
 const Index = (props: IPropsSiderbar) => {
 	const {
-		history: { common, recent }
+		history: { common, recent },
+		visible_search
 	} = props
 	const [s_visible, setStateVisible] = useState(false)
 
@@ -43,12 +44,13 @@ const Index = (props: IPropsSiderbar) => {
 
 	return (
 		<div className={styles._local}>
-			<BtnApps {...props_btn_apps}></BtnApps>
+			{!visible_search && <BtnApps {...props_btn_apps}></BtnApps>}
 			<Modal
 				visible={s_visible}
 				onClose={() => setStateVisible(false)}
 				position='left'
 				maskClosable
+				noBlur={false}
 			>
 				<div className='bar_items_wrap h_100vh flex'>
 					<div className='bar_items w_100 h_100 border_box flex flex_column'>

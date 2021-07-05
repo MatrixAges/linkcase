@@ -27,7 +27,7 @@ export interface IPropsTab {
 }
 
 const Index = (props: IPropsModal) => {
-	const { visible, dispatch } = props
+	const { visible, visible_search, dispatch } = props
 	const history = useHistory()
 	const update = useUpdate()
 	const { location } = history
@@ -63,12 +63,13 @@ const Index = (props: IPropsModal) => {
 
 	return (
 		<div className={styles._local}>
-			<BtnMore {...props_btn_more}></BtnMore>
+			{!visible_search && <BtnMore {...props_btn_more}></BtnMore>}
 			<Modal
 				visible={visible}
 				onClose={() => onChangeVisible(false)}
 				maskClosable
 				maskVisible
+				noBlur={false}
 			>
 				<div className='modal_wrap w_100 border_box'>
 					<Tab {...props_tab}></Tab>

@@ -24,6 +24,12 @@ export interface IReactive {
 	col: number
 }
 
+export interface IPropsSearch {
+	visible: IModelApp['visible_search']
+	search_text: IModelApp['search_text']
+	dispatch: Dispatch
+}
+
 export interface IPropsSites {
 	data: Array<Array<ISite>>
 	dispatch: Dispatch
@@ -40,16 +46,19 @@ export interface IPropsIndi {
 
 export interface IPropsSiderbar {
 	history: IModelApp['history']
+	visible_search: IModelApp['visible_search']
 }
 
 export interface IPropsModal {
 	visible: IModelApp['visible_modal']
+	visible_search: IModelApp['visible_search']
 	dispatch: Dispatch
 }
 
 const Index = (props: IProps) => {
 	const { page_data, dispatch } = props
-	const { visible_modal, dragging, page, sites, history } = page_data
+	const { visible_modal, visible_search, search_text, dragging, page, sites, history } =
+		page_data
 	const intl = useIntl()
 	const swiper = useRef<Swiper>()
 	const body = useCreation(() => document.querySelector('body'), [])
@@ -59,6 +68,12 @@ const Index = (props: IProps) => {
 	const getBlockWidth = useGetBlockWidth(reactive)
 
 	useDragPaging(dragging, body, width, page, swiper)
+
+	const props_search: IPropsSearch = {
+		visible: visible_search,
+		search_text,
+		dispatch
+	}
 
 	const props_sites: IPropsSites = {
 		data,
@@ -77,11 +92,13 @@ const Index = (props: IProps) => {
 	}
 
 	const props_sider_bar: IPropsSiderbar = {
-		history
+		history,
+		visible_search
 	}
 
 	const props_modal: IPropsModal = {
 		visible: visible_modal,
+		visible_search,
 		dispatch
 	}
 
@@ -91,7 +108,7 @@ const Index = (props: IProps) => {
 				<title>{intl.formatMessage({ id: 'title' })}</title>
 			</Helmet>
 			<div className='content_wrap border_box absolute top_0 left_0 w_100 h_100 flex flex_column'>
-				<Search></Search>
+				<Search {...props_search}></Search>
 				<Sites {...props_sites}></Sites>
 				<Indi {...props_indi}></Indi>
 				<SideBar {...props_sider_bar}></SideBar>

@@ -9,7 +9,7 @@
 
 	:global {
 		.search_wrap {
-			.input_search {
+			.btn_input_search {
 				box-sizing: border-box;
 				padding: 0 30px;
 				width: 240px;
@@ -22,29 +22,56 @@
 				font-size: 14px;
 				line-height: 30px;
 				opacity: 0.45;
-
-				&:focus {
-					width: 330px;
-					background-color: fade(black, 24%);
-					opacity: 1;
-
-					backdrop-filter: blur(60px);
-
-					& + .icon_search {
-						opacity: 1;
-					}
-				}
-
-				&::placeholder {
-					color: fade(white, 45%);
-					font-size: 13px;
-				}
 			}
 
 			.icon_search {
 				left: 12px;
 				color: fade(white, 45%);
-				opacity: 0.45;
+			}
+		}
+
+		.modal_search {
+			.icon_engine {
+				margin-top: 90px;
+				margin-bottom: 60px;
+			}
+
+			.input_wrap {
+				width: 600px;
+
+				.input_search {
+					padding: 0 54px;
+					width: 720px;
+					height: 60px;
+					border-radius: 12px;
+					font-size: 24px !important;
+					line-height: 60px;
+
+					&::placeholder {
+						color: fade(black, 24%);
+					}
+
+					&:focus {
+						& + .options_wrap {
+							.icon_search,
+							.icon_close {
+								opacity: 1;
+							}
+						}
+					}
+				}
+
+				.icon_search {
+					left: 15px;
+					font-size: 24px;
+					opacity: 0.45;
+				}
+
+				.icon_close {
+					right: 15px;
+					font-size: 21px;
+					opacity: 0;
+				}
 			}
 		}
 	}
