@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useIntl, Helmet } from 'umi'
-import { useReactiveSize, useGetBlockWidth, useData } from './hooks'
+import { useCreation, useSize } from 'ahooks'
+import { useReactiveSize, useGetBlockWidth, useData, useDragPaging } from './hooks'
 import Search from './components/Search'
 import Sites from './components/Sites'
 import Indi from './components/Indi'
@@ -24,7 +25,7 @@ export interface IReactive {
 }
 
 export interface IPropsSites {
-	data: Array<Array<ISite | undefined>>
+	data: Array<Array<ISite>>
 	dispatch: Dispatch
 	getBlockWidth: (column: number | undefined) => number | undefined
 	setList: (list: Array<ISite>, index: number) => void
@@ -48,12 +49,16 @@ export interface IPropsModal {
 
 const Index = (props: IProps) => {
 	const { page_data, dispatch } = props
-	const { visible_modal, page, sites, history } = page_data
+	const { visible_modal, dragging, page, sites, history } = page_data
 	const intl = useIntl()
 	const swiper = useRef<Swiper>()
-	const reactive = useReactiveSize()
+	const body = useCreation(() => document.querySelector('body'), [])
+	const { width, height } = useSize(body)
+	const reactive = useReactiveSize(width, height)
 	const { data, setList } = useData(sites, reactive)
 	const getBlockWidth = useGetBlockWidth(reactive)
+
+	useDragPaging(dragging, body, width, page, swiper)
 
 	const props_sites: IPropsSites = {
 		data,

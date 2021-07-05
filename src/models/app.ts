@@ -9,6 +9,7 @@ export interface IModelApp {
 	lang: TLang
 	dom_ready: boolean
 	visible_modal: boolean
+	dragging: boolean
 	page: number
 	search_text: string
 	sites: Array<Array<ISite>>
@@ -29,6 +30,7 @@ export default {
 		lang: lang_browser,
 		dom_ready: false,
 		visible_modal: false,
+		dragging: false,
 		page: 1,
 		search_text: '',
 		sites: [[]],

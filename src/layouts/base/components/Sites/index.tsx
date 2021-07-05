@@ -54,6 +54,20 @@ const Index = (props: IPropsSites) => {
 		[data]
 	)
 
+	const onStart = () => {
+		dispatch({
+			type: 'app/updateState',
+			payload: { dragging: true }
+		})
+	}
+
+	const onEnd = () => {
+		dispatch({
+			type: 'app/updateState',
+			payload: { dragging: false }
+		})
+	}
+
 	return (
 		<Swiper
 			className={styles._local}
@@ -73,6 +87,8 @@ const Index = (props: IPropsSites) => {
 						handle='.link_item'
 						forceFallback
 						fallbackOnBody
+						onStart={onStart}
+						onEnd={onEnd}
 					>
 						{items.map((item) => (
 							<Switch key={item.id}>

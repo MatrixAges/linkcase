@@ -35,22 +35,22 @@
 
 		.modal_wrap {
 			overflow: hidden;
-			width: @width_page;
-			height: @height_page;
-			border-radius: @radius_modal;
-			background: @color_bg_modal;
-			box-shadow: @shadow_normal;
+			width: var(--width_page);
+			height: var(--height_page);
+			border-radius: var(--radius_modal);
+			background: var(--color_bg_modal);
+			box-shadow: var(--shadow_normal);
 
 			.tab_items {
 				padding: 15px;
-				width: @width_tab;
+				width: var(--width_tab);
 				height: 100%;
-				background: @color_bg_modal_content;
+				background: var(--color_bg_modal_content);
 
 				.tab_item {
 					margin-bottom: 18px;
 					width: 100%;
-					border-radius: @radius_normal;
+					border-radius: var(--radius_normal);
 					border-radius: 50%;
 					color: black;
 					text-decoration: none;
@@ -59,7 +59,7 @@
 					aspect-ratio: 1;
 
 					&:hover {
-						background-color: @color_bg_sub;
+						background-color: var(--color_bg_sub);
 					}
 
 					&:last-child {
@@ -68,7 +68,7 @@
 
 					&.active {
 						position: relative;
-						background-color: @color_bg_sub;
+						background-color: var(--color_bg_sub);
 					}
 				}
 			}

@@ -1,22 +1,21 @@
-import { flatten, chunk, uniqWith, find, filter } from 'lodash-es'
-import equal from 'fast-deep-equal'
+import { flatten, chunk, uniq, find, filter } from 'lodash-es'
 import type { ISite } from '@/typings/app'
 
-export const blockToItems = (data: Array<Array<ISite | undefined>>, count: number) => {
+export const blockToItems = (data: Array<Array<ISite>>, count: number) => {
 	const block_data: Array<ISite> = []
-	const restore_data: Array<Array<ISite | undefined>> = []
+	const restore_data: Array<Array<ISite>> = []
 
 	data.map((item) => {
 		item.map((it, idx) => {
 			if (!it) return
 
 			if (it.type && it.column && it.row) {
-				const split_item = Array(it.column * it.row - 1).fill({ block_id: it.id })
+				const split_item = Array(it.column * it.row).fill({ block_id: it.id })
 
 				block_data.push(it)
 
-				item[idx] = { block_id: it.id }
 				item.splice(idx + 1, 0, ...split_item)
+				item.splice(idx, 1)
 			}
 		})
 	})
@@ -32,7 +31,7 @@ export const blockToItems = (data: Array<Array<ISite | undefined>>, count: numbe
 	})
 
 	chunk(flatten(data), count).map((item) => {
-		restore_data.push(filter(uniqWith(item, equal), (i) => i !== undefined))
+		restore_data.push(filter(uniq(item), (i) => i !== undefined))
 	})
 
 	restore_data.map((item) => {
@@ -45,5 +44,5 @@ export const blockToItems = (data: Array<Array<ISite | undefined>>, count: numbe
 		})
 	})
 
-	return filter(restore_data, (i) => i.length) as Array<Array<ISite | undefined>>
+	return filter(restore_data, (i) => i.length) as Array<Array<ISite>>
 }

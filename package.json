@@ -51,7 +51,7 @@
     "react-if": "^4.0.1",
     "react-sortablejs": "^6.0.0",
     "recharts": "^2.0.9",
-    "sortablejs": "^1.13.0",
+    "sortablejs": "^1.14.0",
     "swiper": "^6.7.1",
     "umi": "^3.5.0"
   },

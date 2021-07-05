@@ -1,13 +1,12 @@
 import { useCallback, useState, useEffect } from 'react'
-import { useDebounceEffect, useCreation, useSize, useReactive } from 'ahooks'
-import { chunk, uniq, find, cloneDeep } from 'lodash-es'
+import { useDebounceEffect, useReactive, useMouse } from 'ahooks'
+import { cloneDeep } from 'lodash-es'
 import { blockToItems } from './helper'
+import type { Swiper } from 'swiper'
 import type { ISite } from '@/typings/app'
 import type { IReactive } from './index'
 
-export const useReactiveSize = () => {
-	const body = useCreation(() => document.querySelector('body'), [])
-	const { width, height } = useSize(body)
+export const useReactiveSize = (width: number | undefined, height: number | undefined) => {
 	const r = useReactive<IReactive>({ size_item: 160, interval: 10, row: 0, col: 0 })
 
 	useDebounceEffect(
@@ -63,7 +62,7 @@ export const useGetBlockWidth = (reactive: IReactive) => {
 }
 
 export const useData = (data: Array<Array<ISite>>, reactive: IReactive) => {
-	const [state, setState] = useState<Array<Array<ISite | undefined>>>([[]])
+	const [state, setState] = useState<Array<Array<ISite>>>([[]])
 	const count = reactive.row * reactive.col
 
 	useEffect(() => {
@@ -100,4 +99,39 @@ export const useData = (data: Array<Array<ISite>>, reactive: IReactive) => {
 	)
 
 	return { data: state, setList }
+}
+
+export const useDragPaging = (
+	dragging: boolean,
+	body: HTMLBodyElement | null,
+	width: number | undefined,
+	page: number,
+	swiper: React.MutableRefObject<Swiper | undefined>
+) => {
+	if (!body) return
+	if (!width) return
+
+	const { clientX } = useMouse()
+	const body_style = window.getComputedStyle(body)
+
+	useDebounceEffect(
+		() => {
+			if (!dragging) return
+
+			const padding_content =
+				Number(body_style.getPropertyValue('--padding_content').replace('vw', '')) *
+				0.01 *
+				width
+
+			if (clientX < padding_content) {
+				swiper.current?.slideTo(page - 1)
+			}
+
+			if (clientX > width - padding_content) {
+				swiper.current?.slideTo(page + 1)
+			}
+		},
+		[dragging, clientX],
+		{ leading: false, wait: 150 }
+	)
 }

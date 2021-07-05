@@ -1,11 +1,11 @@
 ._local {
 	position: fixed;
-	top: calc((100vh - @height_page) / 2);
-	left: calc((100vw - @width_page) / 2 + @width_tab);
+	top: calc((100vh - var(--height_page)) / 2);
+	left: calc((100vw - var(--width_page)) / 2 + var(--width_tab));
 	z-index: 11;
 	overflow: scroll;
-	width: calc(@width_page - @width_tab);
-	height: @height_page;
-	border-top-right-radius: @radius_modal;
-	border-bottom-right-radius: @radius_modal;
+	width: calc(var(--width_page) - var(--width_tab));
+	height: var(--height_page);
+	border-top-right-radius: var(--radius_modal);
+	border-bottom-right-radius: var(--radius_modal);
 }
