@@ -27,7 +27,7 @@ export interface IPropsSites {
 	data: Array<Array<ISite | undefined>>
 	dispatch: Dispatch
 	getBlockWidth: (column: number | undefined) => number | undefined
-	setList: (source_data: Array<Array<ISite>>, list: Array<ISite>, index: number) => void
+	setList: (list: Array<ISite>, index: number) => void
 	getSwiperInstance: (e: Swiper) => void
 }
 

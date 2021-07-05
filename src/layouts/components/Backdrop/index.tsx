@@ -2,7 +2,7 @@ import styles from './index.less'
 
 const Index = () => {
 	const style: React.CSSProperties = {
-		background: 'rgba(0,0,0,0.3)',
+		background: 'rgba(0,0,0,0.15)',
 		backdropFilter: 'blur(15px)'
 	}
 

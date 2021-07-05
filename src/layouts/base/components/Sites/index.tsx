@@ -66,7 +66,7 @@ const Index = (props: IPropsSites) => {
 					<ReactSortable
 						className='link_items w_100 h_100 transition_normal'
 						list={items}
-						setList={(list) => setList(data, list, index)}
+						setList={(list) => setList(list, index)}
 						animation={300}
 						delay={240}
 						group='shared'
