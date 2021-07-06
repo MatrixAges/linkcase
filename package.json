@@ -71,7 +71,6 @@
     "lint-staged": "^11.0.0",
     "mockjs": "^1.1.0",
     "prettier": "^2.3.0",
-    "thread-loader": "^3.0.4",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5",
     "umi-plugin-extensions": "^0.6.0",
