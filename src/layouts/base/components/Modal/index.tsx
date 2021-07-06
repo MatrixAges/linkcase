@@ -69,7 +69,6 @@ const Index = (props: IPropsModal) => {
 				onClose={() => onChangeVisible(false)}
 				maskClosable
 				maskVisible
-				noBlur={false}
 			>
 				<div className='modal_wrap w_100 border_box'>
 					<Tab {...props_tab}></Tab>

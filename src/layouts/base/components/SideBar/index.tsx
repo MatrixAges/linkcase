@@ -50,7 +50,7 @@ const Index = (props: IPropsSiderbar) => {
 				onClose={() => setStateVisible(false)}
 				position='left'
 				maskClosable
-				noBlur={false}
+				dialogBlur={true}
 			>
 				<div className='bar_items_wrap h_100vh flex'>
 					<div className='bar_items w_100 h_100 border_box flex flex_column'>

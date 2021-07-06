@@ -15,9 +15,9 @@ declare module 'dva-model-extend' {
 
 interface Window {
 	$app: {
-		memo: (
-			el: (props: any) => JSX.Element | null
-		) => React.MemoExoticComponent<(props: any) => JSX.Element | null>
+		memo: <T>(
+			el: (props: T) => JSX.Element | null
+		) => React.MemoExoticComponent<(props: T) => JSX.Element | null>
 	}
 }
 

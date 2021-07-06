@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import styles from './index.less'
+import type { CSSProperties } from 'react'
 
 interface IProps {
 	children: React.ReactNode
@@ -9,7 +10,10 @@ interface IProps {
 	zIndex?: number
 	maskVisible?: boolean
 	maskClosable?: boolean
-	noBlur?: boolean
+	maskBlur?: boolean
+	dialogBlur?: boolean
+	centered?: boolean
+	style?: CSSProperties
 	onClose?: () => void
 }
 
@@ -26,7 +30,10 @@ const Index = (props: IProps) => {
 		zIndex = 10,
 		maskVisible,
 		maskClosable,
-		noBlur = true,
+		maskBlur,
+		dialogBlur,
+		centered = true,
+		style,
 		onClose
 	} = props
 
@@ -83,16 +90,26 @@ const Index = (props: IProps) => {
 			className={styles._local}
 			style={{ zIndex, visibility: s_visible ? 'visible' : 'hidden' }}
 		>
-			<div className='dialog_wrap'>
+			<div className={`dialog_wrap ${centered ? '' : 'no_center'}`}>
 				<div
 					className='mask'
-					style={{ backgroundColor: s_mask_background }}
+					style={{
+						backgroundColor: s_mask_background,
+						backdropFilter:
+							maskBlur && s_mask_background !== 'transparent'
+								? 'blur(30px)'
+								: 'none'
+					}}
 					onClickCapture={maskClosable ? close : undefined}
 					onTouchMoveCapture={maskClosable ? close : undefined}
 				></div>
 				<div
 					className={'dialog ' + position + ' ' + className}
-					style={{ ...s_style, backdropFilter: noBlur ? 'none' : 'blur(30px)' }}
+					style={{
+						...s_style,
+						backdropFilter: dialogBlur ? 'blur(30px)' : 'none',
+						...style
+					}}
 				>
 					{children}
 				</div>
